@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -16,6 +16,10 @@
 @-ms-viewport       { width: device-width; }
 @-o-viewport        { width: device-width; }
 @viewport           { width: device-width; }
+
+* {
+  -webkit-print-color-adjust: exact;
+}
 
 body{
   font-family: 'Open Sans', Arial, Tahoma;
@@ -38,11 +42,10 @@ blockquote {
 }
 #photo{
   width: 160px;
-  height: 160px;
+  height: 100px;
   border-radius: 50%;
   overflow: hidden;
   padding: 5px;
-  background: #334960;
   display: inline-block;
 }
 #photo img{
@@ -388,11 +391,9 @@ blockquote,
         <div class="col-xs-12">
           <div id="photo-header" class="text-center">
             <!-- PHOTO (AVATAR) -->
-            <div id="photo">
-              <img src="&#x2F;&#x2F;www.gravatar.com&#x2F;avatar&#x2F;cbb036a9b4dc3bcc51688769a079851d?s&#x3D;200&amp;r&#x3D;pg&amp;d&#x3D;mm" alt="avatar">
-            </div>
+            <div id="photo"></div>
             <div id="text-header" >
-              <h1>Philippe Dargaud<br><span>CTO &#x2F; Lead Developpeur .NET</span></h1>
+              <h1>Philippe Dargaud<br><span>Lead Developpeur .NET &#x2F; CTO</span></h1>
             </div>
           </div>
         </div>
@@ -402,7 +403,7 @@ blockquote,
           <!-- ABOUT ME -->
           <div class="box">
             <h2><i class="fa fa-user ico"></i> A Propos</h2>
-            <p>Je suis un développeur full stack expert dans les technologies .NET. J'ai travaillé dans des équipes de différentes taille, j'ai donc l'habitude de porter plusieurs casquettes.  La compréhension du domaine métier ainsi que les retours utilisateurs sont des éléments importants que je favorise par des approches tel que le Domain Driven Design. J'apporte une exigence particulière la qualité du code produit en appliquant les pratiques de clean code / Test driven developpement </p>
+            <p>Je suis un développeur full stack expert dans les technologies .NET. <br>J'ai travaillé dans des équipes de différentes taille, j'ai donc l'habitude de porter plusieurs casquettes.<br> La compréhension du domaine métier ainsi que les retours utilisateurs sont des éléments importants que je favorise par des approches tel que le Domain Driven Design.<br> J'apporte une exigence particulière à la qualité du code produit en appliquant les pratiques de Clean code / Test driven developpement </p>
           </div>
           <!-- WORK EXPERIENCE -->
           <div class="box">
@@ -414,25 +415,26 @@ blockquote,
                     <div class="address">
                       <a href="https:&#x2F;&#x2F;www.axess.fr&#x2F;" target= "_blank"><i class="fa fa-globe ico"></i> https:&#x2F;&#x2F;www.axess.fr&#x2F;</a>
                     </div>
-                    <div class="year">December 2018 – Present</div>
+                    <div class="year">Décembre 2018 – Aujourd&#39;hui</div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="job-details col-xs-11">
                     <div class="profession">Directeur Technique</div>
                     <div class="description">
-                      Mise en place d'une nouvelle solution de gestion des formation continues, initiales, en alternance. Maintien et évolution des applications existantes. 
+                      Mise en place d'une nouvelle solution de gestion des formation continues, initiales, en alternance. Maintien et évolution des applications existantes. <br> Recrutement et animation des équipes techniques  (3 équipes - 12 personnes). <br> Présent au COPIL du centre d'expertise et au COTECH du groupe Axess.
                       <div class="highlights">Points clés</div>
                       <ul class="list-group">
                         <li class="list-group-item">Angular / TypeScript / .NET Core / Postgres / Rabbit Mq</li>
-                        <li class="list-group-item">TDD / CQRS / Domain Driven Design</li>
-                        <li class="list-group-item">Docker / Kubernetes</li>
-                        <li class="list-group-item">Agile (SCRUM) / Domain Driven Design</li>
+                        <li class="list-group-item">TDD / CQRS / Architecture Hexagonale / Docker / Kubernetes</li>
                         <li class="list-group-item">Mise en place d'une architecture microservices</li>
-                        <li class="list-group-item">Mise en place des plans de formations de l'équipe R&D</li>
-                        <li class="list-group-item">Mise en place de Coding Dojo interne</li>
-                        <li class="list-group-item">Gestion des problématiques complexes</li>
+                        <li class="list-group-item">Agile (SCRUM) / Domain Driven Design</li>
                         <li class="list-group-item">Gestion des plannings de développements</li>
+                        <li class="list-group-item">Choix des technologies et conception des solutions techniques</li>
+                        <li class="list-group-item">Mise en place des plans de formations de l'équipe R&D, de Coding Dojo interne</li>
+                        <li class="list-group-item">Participation aux décisions stratégiques du centre d'expertise</li>
+                        <li class="list-group-item">Prévision et anticipation des usages technologiques du centre d'expertise</li>
+                        <li class="list-group-item">Identification des structures vieillissantes / obsolètes / non sécurisées</li>
                       </ul>
                     </div>
                   </div>
@@ -445,19 +447,20 @@ blockquote,
                     <div class="address">
                       <a href="https:&#x2F;&#x2F;www.axess.fr&#x2F;" target= "_blank"><i class="fa fa-globe ico"></i> https:&#x2F;&#x2F;www.axess.fr&#x2F;</a>
                     </div>
-                    <div class="year">July 2015 – November 2018</div>
+                    <div class="year">Juillet 2015 – Novembre 2018</div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="job-details col-xs-11">
                     <div class="profession">Responsable technique</div>
                     <div class="description">
-                      Maintenance et evolution du logiciel de gestion des centre de formations 
+                      Maintenance et evolution du logiciel de gestion des centres de formations. <br> Recrutement et animation de l'équipe technique  (5 personnes). <br> 
                       <div class="highlights">Points clés</div>
                       <ul class="list-group">
-                        <li class="list-group-item">Asp.net WebForms / MVC / .NET Framework /  SQL Server </li>
-                        <li class="list-group-item">Etude, Développement et maintenance de l'application </li>
-                        <li class="list-group-item">Gestion des problématiques complexes</li>
+                        <li class="list-group-item">Asp.net WebForms / MVC / .NET Framework /  SQL Server / IIS</li>
+                        <li class="list-group-item">Etude, développement et maintenance de l'application </li>
+                        <li class="list-group-item">Choix des technologies et conception des solutions techniques</li>
+                        <li class="list-group-item">Gestion des problématiques techniques complexes</li>
                         <li class="list-group-item">Gestion des plannings de développements</li>
                       </ul>
                     </div>
@@ -468,19 +471,20 @@ blockquote,
                 <div class="row">
                   <div class="details">
                     <div class="where">ONYXT+</div>
-                    <div class="year">July 2014 – June 2015</div>
+                    <div class="year">Juillet 2014 – Juin 2015</div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="job-details col-xs-11">
                     <div class="profession">Chef de projet &#x2F; Lead Developper</div>
                     <div class="description">
-                      Maintenance et evolution du logiciel de gestion des centre de formations 
+                      Maintenance et evolution du logiciel de gestion des centres de formations. 
                       <div class="highlights">Points clés</div>
                       <ul class="list-group">
-                        <li class="list-group-item">Asp.net WebForms / MVC / .NET Framework /  SQL Server </li>
-                        <li class="list-group-item">Etude, Développement et maintenance de l'application </li>
-                        <li class="list-group-item">Gestion des problématiques complexes</li>
+                        <li class="list-group-item">Asp.net WebForms / MVC / .NET Framework /  SQL Server / IIS</li>
+                        <li class="list-group-item">Etude, développement et maintenance de l'application </li>
+                        <li class="list-group-item">Choix des technologies et conception des solutions techniques</li>
+                        <li class="list-group-item">Gestion des problématiques techniques complexes</li>
                       </ul>
                     </div>
                   </div>
@@ -490,18 +494,18 @@ blockquote,
                 <div class="row">
                   <div class="details">
                     <div class="where">ONYXT+</div>
-                    <div class="year">September 2007 – June 2014</div>
+                    <div class="year">Septembre 2007 – Juin 2014</div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="job-details col-xs-11">
                     <div class="profession">Analyste-programmeur</div>
                     <div class="description">
-                      Maintenance et evolution du logiciel de gestion des centre de formations 
+                      Maintenance et evolution du logiciel de gestion des centres de formations. 
                       <div class="highlights">Points clés</div>
                       <ul class="list-group">
-                        <li class="list-group-item">Asp.net WebForms / MVC / .NET Framework /  SQL Server </li>
-                        <li class="list-group-item">Etude, Développement et maintenance de l'application </li>
+                        <li class="list-group-item">Asp.net WebForms / MVC / .NET Framework /  SQL Server / IIS</li>
+                        <li class="list-group-item">Etude, développement et maintenance de l'application </li>
                       </ul>
                     </div>
                   </div>
@@ -551,7 +555,7 @@ blockquote,
                 <span class= "skill badge">SQL Server</span>
                 <span class= "skill badge">Architecture logicielle</span>
                 <span class= "skill badge">TDD Test Driven Developpment </span>
-                <span class= "skill badge">Intégration cotinue </span>
+                <span class= "skill badge">Intégration continue </span>
               </div>
             </div>
             <div class="skills clearfix">
@@ -563,8 +567,10 @@ blockquote,
                 <span class= "skill badge">Angular</span>
                 <span class= "skill badge">Javascript / Typescript</span>
                 <span class= "skill badge">Docker</span>
-                <span class= "skill badge">Angular</span>
-                <span class= "skill badge">Oracle/ Postgres / MysqL</span>
+                <span class= "skill badge">Oracle / Postgres / MysqL</span>
+                <span class= "skill badge">Domain Driven Design</span>
+                <span class= "skill badge">SCRUM</span>
+                <span class= "skill badge">Management</span>
               </div>
             </div>
           </div>
@@ -633,7 +639,7 @@ blockquote,
             </div>
             <div class="interests clearfix">
               <div class="item-interests">
-                  Reading
+                  Lecture
               </div>
               <div class="col-sm-offset-1 col-sm-12 clearfix">
               </div>
