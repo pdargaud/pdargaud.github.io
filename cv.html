@@ -1,16 +1,15 @@
-  <!-- Based on 
-https://jsonresume.org/
-https://themes.jsonresume.org/theme/kendall -->
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Philippe Dargaud</title>
+    <title>Resume of Philippe Dargaud</title>
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
     <style type="text/css">
     @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
 @charset "utf-8";
@@ -41,10 +40,11 @@ blockquote {
 }
 #photo{
   width: 160px;
-  height: 100px;
+  height: 160px;
   border-radius: 50%;
   overflow: hidden;
   padding: 5px;
+  background: #334960;
   display: inline-block;
 }
 #photo img{
@@ -83,7 +83,7 @@ blockquote {
 
 .box{
   padding-bottom: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 .box h2{
   color: #227c74;
@@ -390,9 +390,11 @@ blockquote,
         <div class="col-xs-12">
           <div id="photo-header" class="text-center">
             <!-- PHOTO (AVATAR) -->
-            <div id="photo"></div>
+            <div id="photo">
+              <img src="https:&#x2F;&#x2F;d3v0px0pttie1i.cloudfront.net&#x2F;uploads&#x2F;user&#x2F;avatar&#x2F;11171421&#x2F;ea9e1a79.jpg" alt="avatar">
+            </div>
             <div id="text-header" >
-              <h1>Philippe Dargaud<br><span>Lead Developpeur .NET &#x2F; CTO</span></h1>
+              <h1>Philippe Dargaud<br><span>Architecte Fullstack, Expert .NET</span></h1>
             </div>
           </div>
         </div>
@@ -401,28 +403,89 @@ blockquote,
         <div class="col-xs-12 col-sm-7">
           <!-- ABOUT ME -->
           <div class="box">
-            <h2><i class="fa fa-user ico"></i> A Propos</h2>
-            <p>Je suis un développeur full stack expert dans les technologies .NET. <br>Ayant travaillé à différents postes dans des équipes de tailles variées, j'ai pu développer une certaine polyvalence et adaptabilité qui me permettent de relever les défis qui s'offrent à moi.<br> La compréhension du domaine métier ainsi que les retours utilisateurs sont des éléments importants que je favorise par des approches telles que le Domain Driven Design.<br> J'apporte une exigence particulière à la qualité du code produit en appliquant les pratiques de Clean code / Test driven developpement. </p>
+            <h2><i class="fas fa-user ico"></i> About</h2>
+            <p>Je suis un développeur full stack expert dans les technologies .NET. Ayant travaillé à différents postes dans des équipes de tailles variées, j'ai pu développer une certaine polyvalence et adaptabilité qui me permettent de relever les défis qui s'offrent à moi. La compréhension du domaine métier ainsi que les retours utilisateurs sont des éléments importants que je favorise par des approches telles que le Domain Driven Design. J'apporte une exigence particulière à la qualité du code produit en appliquant les pratiques de Clean code / Test driven developpement. </p>
           </div>
           <!-- WORK EXPERIENCE -->
           <div class="box">
-            <h2><i class= "fa fa-suitcase ico"></i> Expérience professionnelle</h2>
+            <h2><i class= "fas fa-suitcase ico"></i> Work Experience</h2>
               <div class="job clearfix">
                 <div class="row">
                   <div class="details">
-                    <div class="where">Axess Education et Formation (Axess Groupe)</div>
-                    <div class="address">
-                      <a href="https:&#x2F;&#x2F;www.axess.fr&#x2F;" target= "_blank"><i class="fa fa-globe ico"></i> https:&#x2F;&#x2F;www.axess.fr&#x2F;</a>
+                    <div class="where">
+                      
+                      <div class="pull-right">
+                        Lyon
+                      </div>
                     </div>
-                    <div class="year">Décembre 2018 – Aujourd&#39;hui</div>
+                    <div class="year">January 2022 – February 2023</div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="job-details col-xs-11">
-                    <div class="profession">Directeur Technique</div>
+                    <div class="profession">Développeur &#x2F; Software craftmanship</div>
                     <div class="description">
-                      Mise en place d'une nouvelle solution de gestion des formation continues, initiales, en alternance. Maintien et évolution des applications existantes. <br> Recrutement et animation des équipes techniques  (3 équipes - 12 personnes). <br> Présent au COPIL du centre d'expertise et au COTECH du groupe Axess.
-                      <div class="highlights">Points clés</div>
+                      Développement d'évolutions sur une application de gestion de trésorerie
+                      <div class="highlights">Highlights</div>
+                      <ul class="list-group">
+                        <li class="list-group-item">.NET Core / .NET / Angular / Postgres / Rabbit Mq</li>
+                        <li class="list-group-item">TDD / CQRS / Architecture Hexagonale / Docker / Microservices </li>
+                        <li class="list-group-item">Agile (SCRUM) / Domain Driven Design</li>
+                        <li class="list-group-item">Intervention dans le cadre du lancement d'une nouvelle ligne de produit ayant pour but de créer des synergies avec l'activité principale (Cash Flow Management) et de fournir des offres complémentaires.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="job clearfix">
+                <div class="row">
+                  <div class="details">
+                    <div class="where">
+                      
+                      <div class="pull-right">
+                        Paris
+                      </div>
+                    </div>
+                    <div class="year">June 2021 – December 2021</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="job-details col-xs-11">
+                    <div class="profession">Développeur &#x2F; Software craftmanship</div>
+                    <div class="description">
+                      Développement d'évolutions sur une application de gestion des retours et du SAV
+                      <div class="highlights">Highlights</div>
+                      <ul class="list-group">
+                        <li class="list-group-item">.NET Core / .NET / Postgres / martendb</li>
+                        <li class="list-group-item">TDD / CQRS / Architecture Hexagonale / Microservices </li>
+                        <li class="list-group-item">Agile (SCRUM) / Domain Driven Design</li>
+                        <li class="list-group-item">Developement d'un module de gestion des devis.</li>
+                        <li class="list-group-item">Development d'un module d'import des tickets de caisse d'auchan vers l'application revers.</li>
+                        <li class="list-group-item">Développement de contrats d'interfacage entre les differents systèmes intéréagissant avec l'application revers.</li>
+                        <li class="list-group-item">Migration de la gestion des bibliothèques externes paket -> nuget</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="job clearfix">
+                <div class="row">
+                  <div class="details">
+                    <div class="where">
+                      
+                      <div class="pull-right">
+                        Lyon
+                      </div>
+                    </div>
+                    <div class="year">December 2018 – May 2021</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="job-details col-xs-11">
+                    <div class="profession">CTO &#x2F; Lead Tech .Net Core, Angular</div>
+                    <div class="description">
+                      Mise en place d'une nouvelle solution de gestion des formation continues, initiales, en alternance. Maintien et évolution des applications existantes. Recrutement et animation des équipes techniques  (3 équipes - 12 personnes). Présent au COPIL du centre d'expertise et au COTECH du groupe Axess.
+                      <div class="highlights">Highlights</div>
                       <ul class="list-group">
                         <li class="list-group-item">Angular / TypeScript / .NET Core / Postgres / Rabbit Mq</li>
                         <li class="list-group-item">TDD / CQRS / Architecture Hexagonale / Docker / Microservices / Kubernetes</li>
@@ -439,19 +502,18 @@ blockquote,
               <div class="job clearfix">
                 <div class="row">
                   <div class="details">
-                    <div class="where">Axess Solution Formation (Axess Groupe)</div>
-                    <div class="address">
-                      <a href="https:&#x2F;&#x2F;www.axess.fr&#x2F;" target= "_blank"><i class="fa fa-globe ico"></i> https:&#x2F;&#x2F;www.axess.fr&#x2F;</a>
+                    <div class="where">
+                      
                     </div>
-                    <div class="year">Juillet 2015 – Novembre 2018</div>
+                    <div class="year">July 2015 – November 2018</div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="job-details col-xs-11">
                     <div class="profession">Responsable technique</div>
                     <div class="description">
-                      Maintenance et evolution du logiciel de gestion des centres de formations. <br> Recrutement et animation de l'équipe technique  (5 personnes). <br> 
-                      <div class="highlights">Points clés</div>
+                      Maintenance et evolution du logiciel de gestion des centres de formations. Recrutement et animation de l'équipe technique  (5 personnes). 
+                      <div class="highlights">Highlights</div>
                       <ul class="list-group">
                         <li class="list-group-item">Asp.net WebForms / MVC / .NET Framework /  SQL Server / IIS</li>
                         <li class="list-group-item">Choix des technologies et conception des solutions techniques</li>
@@ -465,8 +527,10 @@ blockquote,
               <div class="job clearfix">
                 <div class="row">
                   <div class="details">
-                    <div class="where">ONYXT+</div>
-                    <div class="year">Juillet 2014 – Juin 2015</div>
+                    <div class="where">
+                      
+                    </div>
+                    <div class="year">July 2014 – June 2015</div>
                   </div>
                 </div>
                 <div class="row">
@@ -474,7 +538,7 @@ blockquote,
                     <div class="profession">Chef de projet &#x2F; Lead Developpeur</div>
                     <div class="description">
                       Maintenance et evolution du logiciel de gestion des centres de formations. 
-                      <div class="highlights">Points clés</div>
+                      <div class="highlights">Highlights</div>
                       <ul class="list-group">
                         <li class="list-group-item">Asp.net WebForms / MVC / .NET Framework /  SQL Server / IIS</li>
                         <li class="list-group-item">Choix des technologies et conception des solutions techniques</li>
@@ -487,8 +551,10 @@ blockquote,
               <div class="job clearfix">
                 <div class="row">
                   <div class="details">
-                    <div class="where">ONYXT+</div>
-                    <div class="year">Septembre 2007 – Juin 2014</div>
+                    <div class="where">
+                      
+                    </div>
+                    <div class="year">September 2007 – June 2014</div>
                   </div>
                 </div>
                 <div class="row">
@@ -496,7 +562,7 @@ blockquote,
                     <div class="profession">Analyste-programmeur</div>
                     <div class="description">
                       Maintenance et evolution du logiciel de gestion des centres de formations. 
-                      <div class="highlights">Points clés</div>
+                      <div class="highlights">Highlights</div>
                       <ul class="list-group">
                         <li class="list-group-item">Asp.net WebForms / MVC / .NET Framework /  SQL Server / IIS</li>
                         <li class="list-group-item">Etude, développement et maintenance de l'application </li>
@@ -510,34 +576,85 @@ blockquote,
         <div class="col-xs-12 col-sm-5">
           <!-- CONTACT -->
           <div class="box clearfix">
-            <h2><i class="fa fa-bullseye ico"></i> Contact</h2>
+            <h2><i class="fas fa-bullseye ico"></i> Contact</h2>
             <div class="contact-item">
-              <div class="icon pull-left text-center"><span class="fa fa-map-marker fa-fw"></span></div>
+              <div class="icon pull-left text-center"><span class="fas fa-map-marker fa-fw"></span></div>
               
               <div class="title only  pull-right">Lyon FR</div>
             </div>
             <div class="contact-item">
-              <div class="icon pull-left text-center"><span class="fa fa-phone fa-fw"></span></div>
+              <div class="icon pull-left text-center"><span class="fas fa-phone fa-fw"></span></div>
               <div class="title only pull-right">06 60 17 73 91</div>
             </div>
             <div class="contact-item">
-              <div class="icon pull-left text-center"><span class="fa fa-envelope fa-fw"></span></div>
+              <div class="icon pull-left text-center"><span class="fas fa-envelope fa-fw"></span></div>
               <div class="title only pull-right"><a href="mailto:philippe.dargaud@gmail.com" target="_blank">philippe.dargaud@gmail.com</a></div>
             </div>
             <div class="contact-item">
-              <div class="icon pull-left text-center"><span class="fa fa-linkedin fa-fw"></span></div>
+              <div class="icon pull-left text-center"><span class="fab fa-linkedin fa-fw"></span></div>
               <div class="title pull-right">linkedin</div>
               <div class="description pull-right"><a href="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;philippe-dargaud-421a3311b&#x2F;" target="_blank">philippe-dargaud</a></div>
             </div>
             <div class="contact-item">
-              <div class="icon pull-left text-center"><span class="fa fa-github fa-fw"></span></div>
+              <div class="icon pull-left text-center"><span class="fab fa-github fa-fw"></span></div>
               <div class="title pull-right">github</div>
               <div class="description pull-right"><a href="https:&#x2F;&#x2F;github.com&#x2F;pdargaud" target="_blank">pdargaud</a></div>
             </div>
           </div>
+          <!-- EDUCATION -->
+          <div class="box">
+            <h2><i class="fas fa-university ico"></i> Education</h2>
+            <ul id="education" class="clearfix">
+              <li>
+                <div class="year pull-left"> 2019</div>
+                <div class="description pull-right">
+                  <h3>HackYourJob</h3>
+                  <div class="where"></div>
+                  <p><i class= "fas fa-graduation-cap ico"></i> Formation continue</p>
+                  <p>Domain Driven Design</p>
+                </div>
+              </li>
+              <li>
+                <div class="year pull-left"> 2019</div>
+                <div class="description pull-right">
+                  <h3>HackYourJob</h3>
+                  <div class="where"></div>
+                  <p><i class= "fas fa-graduation-cap ico"></i> Formation continue</p>
+                  <p>Clean Code</p>
+                </div>
+              </li>
+              <li>
+                <div class="year pull-left"> 2018</div>
+                <div class="description pull-right">
+                  <h3>Pierre Chambe Conseil</h3>
+                  <div class="where"></div>
+                  <p><i class= "fas fa-graduation-cap ico"></i> Formation continue</p>
+                  <p>Les fondamentaux du management </p>
+                </div>
+              </li>
+              <li>
+                <div class="year pull-left">2005 2007</div>
+                <div class="description pull-right">
+                  <h3>Sciences-U</h3>
+                  <div class="where"></div>
+                  <p><i class= "fas fa-graduation-cap ico"></i> BTS</p>
+                  <p>Informatique de gestion</p>
+                </div>
+              </li>
+              <li>
+                <div class="year pull-left">2003 2005</div>
+                <div class="description pull-right">
+                  <h3>Université Lyon I</h3>
+                  <div class="where"></div>
+                  <p><i class= "fas fa-graduation-cap ico"></i> DEUG</p>
+                  <p>Mathématiques, Informatique et Applications aux Sciences</p>
+                </div>
+              </li>
+            </ul>
+          </div>
           <!-- SKILLS -->
           <div class="box">
-            <h2><i class="fa fa-tasks ico"></i> Compétences</h2>
+            <h2><i class="fas fa-tasks ico"></i> Skills</h2>
             <div class="skills clearfix">
               <div class="item-skills">
                   Expert
@@ -568,63 +685,9 @@ blockquote,
               </div>
             </div>
           </div>
-          <!-- EDUCATION -->
-          <div class="box">
-            <h2><i class="fa fa-university ico"></i> Formation</h2>
-            <ul id="education" class="clearfix">
-              <li>
-                <div class="year pull-left">2019  </div>
-                <div class="description pull-right">
-                  <h3>Domain Driven Design</h3>
-                  <p><i class= "fa fa-graduation-cap ico"></i> Formation continue</p>
-                  <p>HackYourJob</p>
-                </div>
-              </li>
-              <li>
-                <div class="year pull-left">2019  </div>
-                <div class="description pull-right">
-                  <h3>Clean Code</h3>
-                  <p><i class= "fa fa-graduation-cap ico"></i> Formation continue</p>
-                  <p>HackYourJob</p>
-                </div>
-              </li>
-              <li>
-                <div class="year pull-left">2018  </div>
-                <div class="description pull-right">
-                  <h3>Les fondamentaux du management </h3>
-                  <p><i class= "fa fa-graduation-cap ico"></i> Formation continue</p>
-                  <p>Pierre Chambe Conseil</p>
-                </div>
-              </li>
-              <li>
-                <div class="year pull-left">2007 2005 </div>
-                <div class="description pull-right">
-                  <h3>Informatique de gestion</h3>
-                  <p><i class= "fa fa-graduation-cap ico"></i> BTS</p>
-                  <p>Sciences-U</p>
-                </div>
-              </li>
-              <li>
-                <div class="year pull-left">2005 2003 </div>
-                <div class="description pull-right">
-                  <h3>Mathématiques, Informatique et Applications aux Sciences</h3>
-                  <p><i class= "fa fa-graduation-cap ico"></i> DEUG</p>
-                  <p>Université Lyon I</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <!-- LANGUAGES -->
-          <div class="box">
-            <h2><i class="fa fa-language ico"></i> Langues</h2>
-            <ul class="list-group">
-              <li class=" list-group-item">Français<span class="skill badge pull-right">Langue maternelle</span></li>
-              <li class=" list-group-item">Anglais<span class="skill badge pull-right">Pratique professionnelle</span></li>
-            </ul>
-          </div>
           <!-- HOBBIES -->
           <div class="box">
-            <h2><i class="fa fa-heart ico"></i> Centres d'intérêts</h2>
+            <h2><i class="fas fa-heart ico"></i> Interests</h2>
             <div class="interests clearfix">
               <div class="item-interests">
                   Sport
@@ -646,6 +709,39 @@ blockquote,
               <div class="col-sm-offset-1 col-sm-12 clearfix">
               </div>
             </div>
+          </div>
+          <div class="box">
+            <h2><i class= "fas fa-check-square ico"></i> References</h2>
+            <blockquote>
+              <div>Un grand professionnel avec un savoir être fantastique. Je ne peux que recommander de travailler avec Philippe qui a fait l'unanimité au sein de l'équipe dans le cadre d'une mission de renfort. Son expertise technique est remarquable, je vous souhaite d'avoir la chance de travailler avec lui.</div>
+              <footer>
+                <a href="" target= "_blank">Vincent Torres - CEO at Revers.io</a>
+              </footer>
+            </blockquote><br>
+            <blockquote>
+              <div>J'ai travaillé avec Philippe pendant plus d'un an. C'est un manager soucieux de la qualité des projets qu'il gère. Il est très attentif à ce qu'il se fait de mieux, et ses choix techniques sont sensés et réfléchis. Également très impliqué, la montée en compétences et le partage avec son équipe sont au centre de ses préoccupations. J'ai beaucoup appris grâce à lui.</div>
+              <footer>
+                <a href="" target= "_blank">Regis Marteau - Full Stack Tech Lead &amp; Team Manager at Agicap</a>
+              </footer>
+            </blockquote><br>
+            <blockquote>
+              <div>J'ai rarement rencontré une personne comme Philippe. Côté management, il ne laisse rien passer, mais il essaie toujours de faire progresser ses équipes et de les pousser vers l'excellence. Techniquement parlant, toujours à la recherche des meilleures pratiques de développement (TDD, DDD ...) tout en gardant un œil critique sur les nouveautés. Il n'hésite pas à confronter ses idées pour faire sortir la meilleure solution adaptée à un problème.Pour résumer, excellence, travail en équipe, amélioration continue et bienveillance ...</div>
+              <footer>
+                <a href="" target= "_blank">Guillaume Andreys - Site Reliability Engineer at inWebo</a>
+              </footer>
+            </blockquote><br>
+            <blockquote>
+              <div>J'ai eu le plaisir de travailler plusieurs fois avec Philippe. Son dévouement et sa capacité d'être moteur lui ont permis de fédérer une équipe compétente. Sa capacité de monter en compétence et de s'imprégner du besoin métier lui permet par exemple de promouvoir de bonnes pratiques pour délivrer un logiciel de qualité et à forte valeur ajoutée.</div>
+              <footer>
+                <a href="" target= "_blank">Florent Pëllet - CTO &amp; cofounder at Superindep.fr</a>
+              </footer>
+            </blockquote><br>
+            <blockquote>
+              <div>Philippe a été très moteur au sein d'Axess pour promouvoir des pratiques de développement dans son équipe (TDD & DDD). Je suis intervenu en formation sur ces sujets, avec une continuité dans le temps montrant l'implication de l'équipe et la volonté de Philippe de la faire progresser pour améliorer la qualité logicielle et la conception des applications.</div>
+              <footer>
+                <a href="" target= "_blank">Clement Bouillier - COO&#x2F;CFO &amp; cofounder at Superindep.fr</a>
+              </footer>
+            </blockquote><br>
           </div>
         </div>
       </div>
