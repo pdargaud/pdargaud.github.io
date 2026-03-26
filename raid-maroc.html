@@ -53,11 +53,14 @@
 </style>
 </head>
 <body>
+
 <div class="legend">
   🏜️ Raid Grand Sud Maroc<br>
   <span>2 au 7 mai 2026</span>
 </div>
+
 <div id="map"></div>
+
 <div class="panel" id="panel">
   <div class="panel-handle" onclick="togglePanel()">
     <div class="handle-bar"></div>
@@ -65,28 +68,31 @@
   <div class="panel-header">
     <h1>Raid Grand Sud Maroc</h1>
     <div class="dates">2 au 7 mai 2026 · Itinéraire Zagora</div>
+    <div style="font-size:11px;color:#73726c;margin-top:4px">Transit : Marrakech → Foum Zguid le 1er mai (~6h de route)</div>
   </div>
   <div class="days" id="days"></div>
   <div style="padding:0 16px 20px">
     <div style="padding:10px 12px;border-radius:8px;background:#f8f7f4;font-size:11px;color:#73726c;line-height:1.6">
       <strong style="color:#1a1a1a">Nuits :</strong> Bab Rimal → Hôtel Zagora → Bivouac Chegaga → Le Pacha (M'Hamid)<br>
-      <strong style="color:#1a1a1a">Vols :</strong> Arrivée 1er mai · Retour 8 mai
+      <strong style="color:#1a1a1a">Vols :</strong> Arrivée 1er mai · Retour 8 mai · Transit Marrakech↔Foum Zguid ~6h
     </div>
   </div>
 </div>
+
 <script>
 const DAYS = [
   {
     day: 1, date: '2 mai', label: 'Jour 1',
-    subtitle: 'Arrivée & mise en jambe',
-    title: 'Marrakech → Foum Zguid',
-    detail: 'Transit puis première sortie autour de Foum Zguid',
+    subtitle: 'Mise en jambe',
+    title: 'Foum Zguid → Aguinane → Foum Zguid',
+    detail: 'Boucle autour de Foum Zguid, mise en jambe',
     hotel: '🏨 Hôtel Bab Rimal',
     hotelBg: '#E1F5EE', hotelColor: '#085041',
     badgeBg: '#E6F1FB', badgeColor: '#0C447C',
     color: '#378ADD',
     stops: [
-      { name: 'Marrakech', lat: 31.6225, lng: -7.9898 },
+      { name: 'Foum Zguid', lat: 30.08, lng: -6.8807 },
+      { name: 'Aguinane', lat: 29.95, lng: -6.75 },
       { name: 'Hôtel Bab Rimal', lat: 30.1279, lng: -6.8675 }
     ]
   },
@@ -121,36 +127,37 @@ const DAYS = [
   },
   {
     day: 4, date: '5 mai', label: 'Jour 4',
-    subtitle: "Chegaga → M'Hamid",
-    title: "Chegaga → M'Hamid",
-    detail: "Profiter des dunes puis route vers M'Hamid",
+    subtitle: 'Chegaga → M\'Hamid',
+    title: 'Chegaga → M\'Hamid',
+    detail: 'Profiter des dunes puis route vers M\'Hamid',
     hotel: '🏨 Hôtel Le Pacha',
     hotelBg: '#E1F5EE', hotelColor: '#085041',
     badgeBg: '#FAEEDA', badgeColor: '#633806',
     color: '#BA7517',
     stops: [
       { name: 'Dunes de Chegaga', lat: 29.8711, lng: -6.2801 },
-      { name: "M'Hamid El Ghizlane", lat: 29.8258, lng: -5.7234 }
+      { name: 'M\'Hamid El Ghizlane', lat: 29.8258, lng: -5.7234 }
     ]
   },
   {
     day: 5, date: '6/7 mai', label: 'Jour 5',
-    subtitle: 'Retour vers Marrakech',
-    title: "M'Hamid → Marrakech",
-    detail: 'Longue route retour',
+    subtitle: 'Retour vers Foum Zguid',
+    title: 'M\'Hamid → Foum Zguid',
+    detail: 'Route retour vers Foum Zguid',
     hotel: null,
     hotelBg: null, hotelColor: null,
     badgeBg: '#EEEDFE', badgeColor: '#3C3489',
     color: '#534AB7',
     stops: [
-      { name: "M'Hamid El Ghizlane", lat: 29.8258, lng: -5.7234 },
-      { name: 'Marrakech', lat: 31.6225, lng: -7.9898 }
+      { name: 'M\'Hamid El Ghizlane', lat: 29.8258, lng: -5.7234 },
+      { name: 'Foum Zguid', lat: 30.08, lng: -6.8807 }
     ]
   }
 ];
 
 const nextColors = ['#1D9E75','#D85A30','#BA7517','#534AB7','#534AB7'];
 
+// Init map
 const map = L.map('map', { zoomControl: false }).setView([30.2, -6.4], 8);
 L.control.zoom({ position: 'topright' }).addTo(map);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -161,6 +168,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const routeLayers = [];
 const markerLayers = [];
 
+// Custom marker
 function makeIcon(color, label) {
   return L.divIcon({
     className: '',
@@ -170,6 +178,7 @@ function makeIcon(color, label) {
   });
 }
 
+// Build day list
 function buildDayList() {
   const daysEl = document.getElementById('days');
   daysEl.innerHTML = '';
@@ -201,6 +210,7 @@ function buildDayList() {
   });
 }
 
+// Fetch route from OSRM (with leg distances)
 async function fetchRoute(dayIndex, stops) {
   const coords = stops.map(s => `${s.lng},${s.lat}`).join(';');
   try {
@@ -222,8 +232,10 @@ async function fetchRoute(dayIndex, stops) {
   return stops.map(s => [s.lat, s.lng]);
 }
 
+// Find the true geographic midpoint along a polyline
 function routeMidpoint(coords) {
   if (coords.length < 2) return coords[0];
+  // Calculate cumulative distances
   const dists = [0];
   for (let i = 1; i < coords.length; i++) {
     const [lat1, lng1] = coords[i - 1];
@@ -245,12 +257,15 @@ function routeMidpoint(coords) {
   return coords[Math.floor(coords.length / 2)];
 }
 
+// Draw all routes
 async function drawRoutes() {
   const allBounds = [];
+
   for (let i = 0; i < DAYS.length; i++) {
     const d = DAYS[i];
     const coords = await fetchRoute(i, d.stops);
     allBounds.push(...coords);
+
     const polyline = L.polyline(coords, {
       color: d.color,
       weight: 4,
@@ -258,6 +273,8 @@ async function drawRoutes() {
       lineCap: 'round'
     }).addTo(map);
     routeLayers.push(polyline);
+
+    // Single day marker at true geographic midpoint
     const mid = routeMidpoint(coords);
     const dayMarker = L.marker(mid, {
       icon: makeIcon(d.color, d.day),
@@ -268,7 +285,9 @@ async function drawRoutes() {
     dayMarker.bindPopup(`<strong>${d.label} · ${d.date}</strong><br>${stopsNames}${totalKm ? '<br><span style="color:#185FA5;font-weight:500">' + totalKm + '</span>' : ''}`);
     markerLayers.push([dayMarker]);
   }
+
   buildDayList();
+
   if (allBounds.length) {
     map.fitBounds(L.latLngBounds(allBounds).pad(0.1));
   }
@@ -277,12 +296,16 @@ async function drawRoutes() {
 function focusDay(index) {
   document.querySelectorAll('.day').forEach(el => el.classList.remove('active'));
   document.querySelector(`.day[data-index="${index}"]`).classList.add('active');
+
+  // Highlight route
   routeLayers.forEach((rl, i) => {
     rl.setStyle({ opacity: i === index ? 1 : 0.2, weight: i === index ? 5 : 3 });
   });
   markerLayers.forEach((ml, i) => {
     ml.forEach(m => m.setOpacity(i === index ? 1 : 0.4));
   });
+
+  // Zoom to day bounds
   const bounds = routeLayers[index].getBounds();
   map.fitBounds(bounds.pad(0.15), { maxZoom: 11 });
 }
@@ -291,6 +314,7 @@ function togglePanel() {
   document.getElementById('panel').classList.toggle('collapsed');
 }
 
+// Reset view on double-click on map
 map.on('dblclick', () => {
   document.querySelectorAll('.day').forEach(el => el.classList.remove('active'));
   routeLayers.forEach(rl => rl.setStyle({ opacity: 0.8, weight: 4 }));
