@@ -500,9 +500,8 @@
     <div class="route-map-container">
       <div id="map"></div>
       <div class="map-legend-bar">
-        <span class="leg"><span class="leg-line" style="background:linear-gradient(90deg,#f0c56c,#d4763c,#8b2c1a)"></span> Progression J1 &rarr; J5</span>
-        <span class="leg"><span class="leg-dash"></span> Retour van Marrakech</span>
-        <span class="leg">&#9679; Etape nuit &nbsp; &#9675; Passage</span>
+        <span class="leg"><span class="leg-line" style="background:#d4a853"></span> Itineraire quad</span>
+        <span class="leg">&#9679; Etape de nuit</span>
       </div>
     </div>
   </section>
@@ -611,253 +610,82 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // ── Inject dynamic styles ──
+    // ── Map styles ──
     const dynCSS = document.createElement('style');
-    dynCSS.textContent = [
-      // Segment tooltips (hover)
-      '.seg-tip{background:rgba(26,26,46,0.92)!important;color:#f0e6d3!important;border:1px solid rgba(212,167,83,0.35)!important;border-radius:8px!important;padding:5px 12px!important;font-family:Inter,sans-serif!important;font-size:0.8rem!important;box-shadow:0 4px 14px rgba(0,0,0,0.45)!important;white-space:nowrap}',
-      '.seg-tip::before{display:none!important}',
-      // Permanent distance badges on segments
-      '.dist-badge{background:rgba(26,26,46,0.82);color:#f0e6d3;border:1px solid rgba(212,167,83,0.3);border-radius:6px;padding:2px 7px;font-family:Inter,sans-serif;font-size:10px;font-weight:500;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.35);letter-spacing:0.3px;pointer-events:none}',
-      // Night stop name badges
-      '.stop-badge{background:rgba(255,255,255,0.88);color:#1a1a2e;border:1px solid rgba(212,167,83,0.4);border-radius:5px;padding:2px 8px;font-family:Inter,sans-serif;font-size:11.5px;font-weight:600;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);letter-spacing:0.2px}',
-      // Passage stop name badges
-      '.pass-badge{background:rgba(255,255,255,0.78);color:#555;border:1px solid rgba(200,180,150,0.4);border-radius:4px;padding:1px 6px;font-family:Inter,sans-serif;font-size:10px;font-weight:500;white-space:nowrap;box-shadow:0 1px 5px rgba(0,0,0,0.15)}',
-    ].join('\n');
+    dynCSS.textContent = '.map-tip{background:rgba(26,26,46,0.92)!important;color:#f0e6d3!important;border:1px solid rgba(212,167,83,0.35)!important;border-radius:8px!important;padding:6px 14px!important;font-family:Inter,sans-serif!important;font-size:0.85rem!important;box-shadow:0 4px 14px rgba(0,0,0,0.45)!important;white-space:nowrap}.map-tip::before{display:none!important}';
     document.head.appendChild(dynCSS);
 
-    // ── Map setup — zoomed on the raid triangle ──
+    // ── Map setup — tight zoom on raid zone ──
     const map = L.map('map', {
       zoomControl: false,
       scrollWheelZoom: false,
       attributionControl: true
     });
-
     L.control.zoom({ position: 'topright' }).addTo(map);
 
-    // OpenTopoMap — terrain, relief, desert visible
     L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
+      attribution: '&copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)',
       maxZoom: 15
     }).addTo(map);
 
-    // Focus on the raid zone (Foum Zguid / Zagora / Chegaga triangle)
-    // Marrakech stays visible at the edge but doesn't dominate
+    // Tight bounds: just the raid zone
     map.fitBounds([
-      [29.15, -7.25],  // SW corner (below Chegaga, west of Aguinane)
-      [30.55, -5.50]   // NE corner (above Zagora, east of M'Hamid)
-    ], { padding: [30, 30] });
+      [29.20, -7.15],  // SW: below Chegaga
+      [30.45, -5.60]   // NE: just above Zagora
+    ], { padding: [20, 20] });
 
-    // ── Etapes data ──
-    const etapes = [
-      {
-        id: 1, day: 'J1', label: 'Foum Zguid \u2192 Aguinane \u2192 Foum Zguid',
-        points: [[29.97,-6.87],[29.52,-7.05]],
-        retour: [[29.52,-7.05],[29.97,-6.87]],
-        km: '~90 km A/R', duree: '~3h',
-        night: { name: 'Foum Zguid', coord: [29.97,-6.87], info: 'Hotel Bab Rimal' },
-        passage: [{ name: 'Aguinane', coord: [29.52,-7.05] }]
-      },
-      {
-        id: 2, day: 'J2', label: 'Foum Zguid \u2192 Tissint \u2192 Zagora',
-        points: [[29.97,-6.87],[29.58,-7.08],[30.33,-5.84]],
-        km: '~200 km', duree: '~5h',
-        night: { name: 'Zagora', coord: [30.33,-5.84], info: 'Nuitee a Zagora' },
-        passage: [{ name: 'Tissint', coord: [29.58,-7.08] }]
-      },
-      {
-        id: 3, day: 'J3', label: 'Zagora \u2192 Lac Iriki \u2192 Erg Chegaga',
-        points: [[30.33,-5.84],[29.50,-6.20],[29.32,-6.28]],
-        km: '~160 km', duree: '~6h',
-        night: { name: 'Erg Chegaga', coord: [29.32,-6.28], info: 'Bivouac dans les dunes' },
-        passage: [{ name: 'Lac Iriki / Titanic', coord: [29.50,-6.20] }]
-      },
-      {
-        id: 4, day: 'J4', label: 'Chegaga \u2192 M\'Hamid',
-        points: [[29.32,-6.28],[29.83,-5.72]],
-        km: '~80 km', duree: '~3h',
-        night: { name: "M'Hamid", coord: [29.83,-5.72], info: 'Hotel Le Pacha' },
-        passage: []
-      },
-      {
-        id: 5, day: 'J5', label: 'M\'Hamid \u2192 Foum Zguid',
-        points: [[29.83,-5.72],[29.97,-6.87]],
-        km: '~120 km', duree: '~4h',
-        night: { name: 'Foum Zguid', coord: [29.97,-6.87], info: 'Fin du raid' },
-        passage: []
-      }
+    // ── Night stops (the only markers on the map) ──
+    const stops = [
+      { n: 1, name: 'Foum Zguid',  coord: [29.97, -6.87], anchor: [16, 16], info: 'J1, J2, J5 — Hotel Bab Rimal' },
+      { n: 2, name: 'Zagora',      coord: [30.33, -5.84], anchor: [16, 16], info: 'J2 arrivee, J3 depart' },
+      { n: 3, name: 'Erg Chegaga', coord: [29.32, -6.28], anchor: [16, 16], info: 'J3 — Bivouac dans les dunes' },
+      { n: 4, name: "M'Hamid",     coord: [29.83, -5.72], anchor: [16, 16], info: 'J4 — Hotel Le Pacha' }
     ];
 
-    // ── Color gradient: warm progression J1→J5 ──
-    const segColors = ['#e8b830','#e09520','#d4763c','#c04a28','#8b2c1a'];
-
-    // ── Draw route segments with arrowheads (plugin) ──
-    etapes.forEach((et, i) => {
-      const col = segColors[i];
-
-      // Main polyline with arrowheads
-      const line = L.polyline(et.points, {
-        color: col, weight: 5, opacity: 0.9, lineCap: 'round', lineJoin: 'round'
-      }).arrowheads({
-        frequency: '80px',
-        size: '12px',
-        fill: true,
-        fillColor: col,
-        color: col,
-        yawn: 45
-      }).addTo(map);
-
-      // Hover tooltip with full info
-      line.bindTooltip(
-        '<b style="color:'+col+'">' + et.day + '</b> &mdash; ' + et.label +
-        '<br>' + et.km + ' &bull; ' + et.duree,
-        { sticky: true, className: 'seg-tip', direction: 'top', offset: [0, -12] }
-      );
-
-      // J1 return leg (dashed, same color but lighter)
-      if (et.retour) {
-        L.polyline(et.retour, {
-          color: col, weight: 3, opacity: 0.45, dashArray: '8 6'
-        }).arrowheads({
-          frequency: '100px', size: '10px', fill: true, fillColor: col, color: col, yawn: 40
-        }).addTo(map);
-      }
-
-      // ── Permanent distance/duration badge at segment midpoint ──
-      const pts = et.points;
-      const midIdx = Math.floor(pts.length / 2);
-      const mA = pts[midIdx - 1] || pts[0];
-      const mB = pts[midIdx];
-      const midLat = (mA[0] + mB[0]) / 2;
-      const midLng = (mA[1] + mB[1]) / 2;
-      // Offset badge slightly to not overlap line
-      const offsetLat = 0.04;
-
-      L.marker([midLat + offsetLat, midLng], {
+    stops.forEach(s => {
+      L.marker(s.coord, {
         icon: L.divIcon({
           className: '',
-          html: '<div class="dist-badge"><span style="color:'+col+';font-weight:700">'+et.day+'</span> '+et.km+' &bull; '+et.duree+'</div>',
-          iconSize: [140, 20],
-          iconAnchor: [70, 10]
-        }),
-        interactive: false,
-        zIndexOffset: 800
-      }).addTo(map);
-    });
-
-    // ── Retour van: Foum Zguid -> Marrakech ──
-    // Prominent dashed line in contrasting color
-    const vanRoute = [[29.97,-6.87],[30.42,-7.15],[30.90,-7.55],[31.25,-7.80],[31.63,-8.00]];
-    L.polyline(vanRoute, {
-      color: '#5b7fa6', weight: 3.5, opacity: 0.7, dashArray: '12 8'
-    }).arrowheads({
-      frequency: '120px', size: '10px', fill: true, fillColor: '#5b7fa6', color: '#5b7fa6', yawn: 40
-    }).addTo(map)
-      .bindTooltip(
-        '<b style="color:#5b7fa6">Retour</b> &mdash; Van + remorque &rarr; Marrakech<br>~350 km &bull; ~5h',
-        { sticky: true, className: 'seg-tip', direction: 'top', offset: [0, -12] }
-      );
-
-    // Van distance badge
-    L.marker([30.65, -7.35], {
-      icon: L.divIcon({
-        className: '',
-        html: '<div class="dist-badge" style="border-color:rgba(91,127,166,0.4)"><span style="color:#5b7fa6;font-weight:700">Van</span> ~350 km &bull; ~5h</div>',
-        iconSize: [140, 20],
-        iconAnchor: [70, 10]
-      }),
-      interactive: false, zIndexOffset: 800
-    }).addTo(map);
-
-    // Marrakech marker with badge
-    L.marker([31.63, -8.00], {
-      icon: L.divIcon({
-        className: '',
-        html: '<div style="display:flex;align-items:center;gap:6px;white-space:nowrap">' +
-              '<div style="width:12px;height:12px;border-radius:50%;background:#5b7fa6;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.3)"></div>' +
-              '<span class="stop-badge" style="color:#5b7fa6;border-color:rgba(91,127,166,0.4)">Marrakech</span></div>',
-        iconSize: [120, 22],
-        iconAnchor: [6, 11]
-      }),
-      zIndexOffset: 600
-    }).addTo(map);
-
-    // ── Night stop markers: numbered circles + name badge ──
-    const nightStops = [];
-    const seenNights = new Set();
-    etapes.forEach(et => {
-      const key = et.night.coord.join(',');
-      if (!seenNights.has(key)) {
-        seenNights.add(key);
-        nightStops.push(et);
-      }
-    });
-
-    let stopNum = 1;
-    nightStops.forEach(et => {
-      const c = et.night.coord;
-      const n = stopNum++;
-
-      // Numbered circle + name badge with background
-      L.marker(c, {
-        icon: L.divIcon({
-          className: '',
-          html: '<div style="position:relative;display:flex;align-items:center;gap:8px">' +
-                // Numbered circle
-                '<div style="width:32px;height:32px;min-width:32px;border-radius:50%;background:#1a1a2e;border:3px solid #d4a853;display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(212,168,83,0.5),0 2px 8px rgba(0,0,0,0.4)">' +
-                '<span style="font-family:Playfair Display,serif;font-size:14px;font-weight:700;color:#d4a853">'+n+'</span></div>' +
-                // Name badge with semi-transparent background
-                '<span class="stop-badge">'+et.night.name+'</span>' +
-                '</div>',
-          iconSize: [160, 32],
-          iconAnchor: [16, 16],
-          popupAnchor: [0, -20]
+          html: '<div style="display:flex;align-items:center;gap:6px">' +
+                '<div style="width:28px;height:28px;min-width:28px;border-radius:50%;background:#1a1a2e;border:2.5px solid #d4a853;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4)">' +
+                '<span style="font-family:Playfair Display,serif;font-size:13px;font-weight:700;color:#d4a853">' + s.n + '</span></div>' +
+                '<span style="background:rgba(255,255,255,0.9);color:#1a1a2e;border:1px solid rgba(212,167,83,0.4);border-radius:4px;padding:2px 7px;font-family:Inter,sans-serif;font-size:11px;font-weight:600;white-space:nowrap;box-shadow:0 1px 6px rgba(0,0,0,0.2)">' + s.name + '</span></div>',
+          iconSize: [140, 28],
+          iconAnchor: s.anchor,
+          popupAnchor: [0, -18]
         }),
         zIndexOffset: 1000
       }).addTo(map)
-        .bindPopup(
-          '<strong>'+n+'. '+et.night.name+'</strong><br>'+et.night.info+
-          '<br><span style="color:#999;font-size:0.8em">'+et.day+' &mdash; '+et.km+' &bull; '+et.duree+'</span>'
-        );
+        .bindPopup('<strong>' + s.n + '. ' + s.name + '</strong><br>' + s.info);
     });
 
-    // ── Passage stops: small circle + name badge ──
-    etapes.forEach(et => {
-      et.passage.forEach(p => {
-        L.marker(p.coord, {
-          icon: L.divIcon({
-            className: '',
-            html: '<div style="display:flex;align-items:center;gap:5px;white-space:nowrap">' +
-                  '<div style="width:14px;height:14px;min-width:14px;border-radius:50%;background:#fff;border:2.5px solid #d4763c;box-shadow:0 1px 5px rgba(0,0,0,0.3)"></div>' +
-                  '<span class="pass-badge">'+p.name+'</span></div>',
-            iconSize: [130, 18],
-            iconAnchor: [7, 9]
-          }),
-          zIndexOffset: 500
-        }).addTo(map);
+    // ── Route: single continuous polyline for the full circuit ──
+    const fullRoute = [
+      [29.97, -6.87],  // Foum Zguid (depart)
+      [29.52, -7.05],  // Aguinane (J1 aller)
+      [29.97, -6.87],  // Foum Zguid (J1 retour)
+      [29.58, -7.08],  // Tissint (J2 passage)
+      [30.33, -5.84],  // Zagora (J2 nuit)
+      [29.50, -6.20],  // Lac Iriki (J3 passage)
+      [29.32, -6.28],  // Erg Chegaga (J3 nuit)
+      [29.83, -5.72],  // M'Hamid (J4 nuit)
+      [29.97, -6.87]   // Foum Zguid (J5 retour)
+    ];
+
+    // White outline for contrast on topo
+    L.polyline(fullRoute, {
+      color: '#fff', weight: 8, opacity: 0.5, lineCap: 'round', lineJoin: 'round'
+    }).addTo(map);
+
+    // Main route line
+    L.polyline(fullRoute, {
+      color: '#d4a853', weight: 5, opacity: 0.95, lineCap: 'round', lineJoin: 'round'
+    }).arrowheads({
+      frequency: '100px', size: '12px', fill: true, fillColor: '#d4a853', color: '#d4a853', yawn: 50
+    }).addTo(map)
+      .bindTooltip('Circuit Raid Grand Sud — 5 jours, ~650 km', {
+        sticky: true, className: 'map-tip', direction: 'top', offset: [0, -14]
       });
-    });
-
-    // ── Mini-map: Morocco locator (bottom-left) ──
-    const MiniMapControl = L.Control.extend({
-      options: { position: 'bottomleft' },
-      onAdd: function() {
-        const c = L.DomUtil.create('div', 'minimap-control');
-        c.innerHTML =
-          '<svg width="80" height="90" viewBox="0 0 80 90" style="display:block">' +
-          '<rect width="80" height="90" rx="4" fill="rgba(26,26,46,0.85)" stroke="rgba(212,167,83,0.25)" stroke-width="1"/>' +
-          '<path d="M20,12 L55,10 L62,20 L65,35 L60,42 L58,55 L50,62 L42,70 L30,75 L20,72 L15,60 L12,45 L15,30 Z" fill="rgba(212,167,83,0.08)" stroke="rgba(212,167,83,0.4)" stroke-width="1.2"/>' +
-          '<rect x="32" y="42" width="18" height="14" rx="2" fill="rgba(212,167,83,0.15)" stroke="#d4a853" stroke-width="1.5" stroke-dasharray="3 2"/>' +
-          '<circle cx="41" cy="49" r="2" fill="#d4a853" opacity="0.8"/>' +
-          '<text x="40" y="85" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="rgba(212,167,83,0.6)">MAROC</text>' +
-          '<circle cx="28" cy="28" r="1.5" fill="rgba(150,150,150,0.5)"/>' +
-          '<text x="32" y="30" font-family="Inter,sans-serif" font-size="5" fill="rgba(150,150,150,0.5)">Marrakech</text>' +
-          '</svg>';
-        L.DomEvent.disableClickPropagation(c);
-        return c;
-      }
-    });
-    map.addControl(new MiniMapControl());
   </script>
 
 </body>
