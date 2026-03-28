@@ -62,15 +62,15 @@
       pointer-events: none;
     }
 
-    /* Dune shapes */
+    /* Dune shapes — smooth wave transition to night-blue */
     .hero::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 200px;
+      bottom: -1px; left: 0; right: 0;
+      height: 220px;
       background:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath fill='%231a1a2e' d='M0,200 C240,120 480,160 720,100 C960,40 1200,120 1440,80 L1440,200 Z'/%3E%3Cpath fill='%231a1a2e' opacity='0.5' d='M0,200 C360,140 600,180 900,120 C1100,80 1300,140 1440,100 L1440,200 Z'/%3E%3C/svg%3E") no-repeat bottom center;
-      background-size: 100% 200px;
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'%3E%3Cpath fill='%231a1a2e' opacity='0.4' d='M0,180 C200,120 400,150 600,110 C800,70 1000,100 1200,80 C1350,68 1440,90 1440,90 L1440,220 L0,220 Z'/%3E%3Cpath fill='%231a1a2e' d='M0,200 C180,160 360,180 540,150 C720,120 900,80 1080,110 C1260,140 1380,100 1440,120 L1440,220 L0,220 Z'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: 100% 220px;
       pointer-events: none;
     }
 
@@ -171,10 +171,11 @@
 
     .route-map-container {
       display: flex;
-      border: 1px solid rgba(212,167,83,0.2);
-      border-radius: 20px;
+      border: 1px solid rgba(212,167,83,0.25);
+      border-radius: 16px;
       overflow: hidden;
       background: rgba(26,26,46,0.95);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,167,83,0.08);
     }
 
     /* Etapes panel (left) */
@@ -749,13 +750,11 @@
       // Markers for this etape
       et.markers.forEach(m => {
         const isNight = m.type === 'night';
-        const size = isNight ? 26 : 16;
-        const bg = isNight ? '#1a1a2e' : '#fff';
-        const border = isNight ? '2.5px solid #d4a853' : '2px solid #d4763c';
-        const shadow = isNight ? '0 0 10px rgba(212,168,83,0.4),0 2px 6px rgba(0,0,0,0.4)' : '0 1px 4px rgba(0,0,0,0.3)';
-        const label = isNight
-          ? '<span style="background:rgba(255,255,255,0.92);color:#1a1a2e;border:1px solid rgba(212,167,83,0.4);border-radius:4px;padding:2px 7px;font-family:Inter,sans-serif;font-size:11px;font-weight:600;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,0.15)">' + m.name + '</span>'
-          : '<span style="color:rgba(255,255,255,0.8);font-family:Inter,sans-serif;font-size:10px;font-weight:500;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,0.7)">' + m.name + '</span>';
+        const size = isNight ? 28 : 18;
+        const bg = isNight ? '#1a1a2e' : '#1a1a2e';
+        const border = isNight ? '2.5px solid #d4a853' : '2px solid #8B1A2B';
+        const shadow = '0 2px 6px rgba(0,0,0,0.5)';
+        const label = '<span style="background:rgba(26,26,46,0.88);color:#f0e6d3;border:1px solid rgba(212,167,83,0.3);border-radius:4px;padding:2px 7px;font-family:Inter,sans-serif;font-size:' + (isNight ? '11px' : '10px') + ';font-weight:' + (isNight ? '600' : '500') + ';white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,0.3)">' + m.name + '</span>';
 
         L.marker(m.coord, {
           icon: L.divIcon({
