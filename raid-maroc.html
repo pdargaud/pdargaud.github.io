@@ -511,10 +511,6 @@
           <span class="stat-label">Jours</span>
         </div>
         <div class="stat">
-          <span class="stat-number">6</span>
-          <span class="stat-label">Etapes</span>
-        </div>
-        <div class="stat">
           <span class="stat-number">1</span>
           <span class="stat-label">Bivouac</span>
         </div>
@@ -663,7 +659,7 @@
       {
         day: 'J1', title: 'Foum Zguid \u2192 Aguinane',
         subtitle: 'A/R mise en jambe',
-        km: '~90 km A/R', duree: '~3h',
+        km: '', duree: '',
         points: [[29.97,-6.87],[29.52,-7.05]],
         retour: [[29.52,-7.05],[29.97,-6.87]],
         markers: [
@@ -674,7 +670,7 @@
       {
         day: 'J2', title: 'Foum Zguid \u2192 Zagora',
         subtitle: 'Via Tissint',
-        km: '~200 km', duree: '~5h',
+        km: '', duree: '',
         points: [[29.97,-6.87],[29.58,-7.08],[30.33,-5.84]],
         markers: [
           { name: 'Foum Zguid', coord: [29.97,-6.87], type: 'pass' },
@@ -685,7 +681,7 @@
       {
         day: 'J3', title: 'Zagora \u2192 Erg Chegaga',
         subtitle: 'Lac Iriki & dunes',
-        km: '~160 km', duree: '~6h',
+        km: '', duree: '',
         points: [[30.33,-5.84],[29.50,-6.20],[29.32,-6.28]],
         markers: [
           { name: 'Zagora', coord: [30.33,-5.84], type: 'pass' },
@@ -696,7 +692,7 @@
       {
         day: 'J4', title: 'Chegaga \u2192 M\'Hamid',
         subtitle: 'Desert & oasis',
-        km: '~80 km', duree: '~3h',
+        km: '', duree: '',
         points: [[29.32,-6.28],[29.83,-5.72]],
         markers: [
           { name: 'Erg Chegaga', coord: [29.32,-6.28], type: 'pass' },
@@ -706,7 +702,7 @@
       {
         day: 'J5', title: 'M\'Hamid \u2192 Foum Zguid',
         subtitle: 'Retour base',
-        km: '~120 km', duree: '~4h',
+        km: '', duree: '',
         points: [[29.83,-5.72],[29.97,-6.87]],
         markers: [
           { name: "M'Hamid", coord: [29.83,-5.72], type: 'pass' },
@@ -782,7 +778,7 @@
       item.innerHTML =
         '<span class="etape-day">' + et.day + '</span>' +
         '<div class="etape-info"><h4>' + et.title + '</h4>' +
-        '<div class="etape-meta">' + et.km + ' &bull; ' + et.duree + '</div></div>';
+        (et.km ? '<div class="etape-meta">' + et.km + ' &bull; ' + et.duree + '</div>' : '') + '</div>';
       item.addEventListener('click', () => selectEtape(i));
       panel.appendChild(item);
     });
