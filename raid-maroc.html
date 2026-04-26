@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raid Grand Sud Maroc - 5 Jours</title>
+  <title>Raid Sud Maroc - 6 Jours / 5 Nuits (Quad & Buggy)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -385,6 +385,22 @@
       font-weight: 500;
       letter-spacing: 1px;
       text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    a.tag {
+      cursor: pointer;
+    }
+    a.tag::after {
+      content: ' \2197';
+      font-size: 0.65rem;
+      opacity: 0.7;
+      margin-left: 0.15rem;
+    }
+    a.tag:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.15);
     }
 
     .tag-hotel {
@@ -499,16 +515,20 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <span class="hero-badge">Aventure Quad</span>
-      <h1>Raid Grand Sud</h1>
+      <span class="hero-badge">Aventure Quad &amp; Buggy</span>
+      <h1>Raid Sud Maroc</h1>
       <p class="hero-subtitle">
-        Une traversee du desert marocain en quad, 5 jours.<br>
-        Dunes, pistes, bivouac et horizons infinis.
+        Une traversee du desert marocain en quad et buggy, 6 jours / 5 nuits.<br>
+        Dunes, pistes, bivouac de luxe et horizons infinis.
       </p>
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-number">5</span>
+          <span class="stat-number">6</span>
           <span class="stat-label">Jours</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Nuits</span>
         </div>
         <div class="stat">
           <span class="stat-number">1</span>
@@ -526,7 +546,7 @@
   <!-- ROUTE MAP -->
   <section class="map-section fade-in">
     <h2 class="section-title">L'Itineraire</h2>
-    <p class="section-subtitle">Boucle a travers le desert du Grand Sud</p>
+    <p class="section-subtitle">Marrakech &mdash; Foum Zguid &mdash; Chegaga &mdash; Skoura &mdash; Marrakech</p>
 
     <div class="route-map-container">
       <div class="etape-panel" id="etape-panel"></div>
@@ -537,73 +557,97 @@
   <!-- PROGRAMME -->
   <section class="timeline-section">
     <h2 class="section-title">Le Programme</h2>
-    <p class="section-subtitle">5 jours a travers le Grand Sud</p>
+    <p class="section-subtitle">6 jours / 5 nuits &mdash; du 02 au 07 mai</p>
 
     <div class="timeline">
 
       <!-- JOUR 1 -->
       <article class="day-card fade-in">
-        <p class="day-number">Jour 1</p>
-        <h3 class="day-route">Foum Zguid &mdash; Aguinane &mdash; Foum Zguid</h3>
+        <p class="day-number">Jour 1 &middot; 02 mai &middot; Transfert</p>
+        <h3 class="day-route">Marrakech &mdash; Foum Zguid</h3>
         <p class="day-description">
-          Depart de Foum Zguid en direction d'Aguinane pour une premiere journee de mise en jambe.
-          Retour a Foum Zguid pour le dejeuner.
+          Depart de Marrakech en van. Route d'environ 350 km (100 % route).
+          Arrivee prevue vers 16h00 a Foum Zguid.
+          Installation, temps libre (piscine, repos).
         </p>
         <div class="day-tags">
-          <span class="tag tag-hotel"><span class="tag-icon">&#127976;</span> Hotel Bab Rimal</span>
+          <span class="tag tag-highlight"><span class="tag-icon">&#128666;</span> ~350 km route</span>
+          <a class="tag tag-hotel" href="https://www.booking.com/hotel/ma/bab-rimal-chez-naji.html" target="_blank" rel="noopener"><span class="tag-icon">&#127976;</span> Bab Rimal &mdash; Foum Zguid</a>
         </div>
       </article>
 
       <!-- JOUR 2 -->
       <article class="day-card fade-in">
-        <p class="day-number">Jour 2</p>
-        <h3 class="day-route">Foum Zguid &mdash; Tissint &mdash; Plateau desertique &mdash; Zagora</h3>
+        <p class="day-number">Jour 2 &middot; 03 mai</p>
+        <h3 class="day-route">Foum Zguid &mdash; Aguinane &mdash; Tissint</h3>
         <p class="day-description">
-          Traversee vers Tissint puis passage par le plateau desertique.
-          Direction Zagora pour la nuitee.
+          Briefing et prise en main des machines. Depart en direction d'Aguinane,
+          dejeuner sur place, puis reprise vers Tissint.
+          Regs, cailloux, premieres sensations desertiques.
         </p>
         <div class="day-tags">
-          <span class="tag tag-highlight"><span class="tag-icon">&#127964;</span> Plateau desertique</span>
-          <span class="tag tag-hotel"><span class="tag-icon">&#127976;</span> Nuitee a Zagora</span>
+          <span class="tag tag-highlight"><span class="tag-icon">&#128205;</span> ~120 km &middot; ~90 % piste</span>
+          <a class="tag tag-hotel" href="https://www.booking.com/hotel/ma/kasbah-tissint.html" target="_blank" rel="noopener"><span class="tag-icon">&#127976;</span> Kasbah Tissint</a>
         </div>
       </article>
 
       <!-- JOUR 3 -->
       <article class="day-card fade-in">
-        <p class="day-number">Jour 3</p>
-        <h3 class="day-route">Zagora &mdash; Lac Iriki &mdash; Chegaga</h3>
+        <p class="day-number">Jour 3 &middot; 04 mai</p>
+        <h3 class="day-route">Tissint &mdash; Lac Iriki &mdash; Erg Chegaga</h3>
         <p class="day-description">
-          Depart vers le lac Iriki avec dejeuner au Titanic.
-          L'apres-midi, traversee et roulage dans les dunes de Chegaga jusqu'au coucher du soleil.
+          Depart vers le Lac Iriki, ancien lac assseche, grandes etendues roulantes.
+          Dejeuner sur le parcours puis direction les dunes de l'Erg Chegaga.
+          Coucher de soleil dans les dunes en quad / buggy.
         </p>
         <div class="day-tags">
+          <span class="tag tag-highlight"><span class="tag-icon">&#128205;</span> ~150 km &middot; ~95 % piste</span>
           <span class="tag tag-highlight"><span class="tag-icon">&#9728;&#65039;</span> Dunes de Chegaga</span>
-          <span class="tag tag-bivouac"><span class="tag-icon">&#9978;&#65039;</span> Bivouac dans le desert</span>
+          <span class="tag tag-bivouac"><span class="tag-icon">&#9978;&#65039;</span> Bivouac de luxe Chegaga</span>
         </div>
       </article>
 
       <!-- JOUR 4 -->
       <article class="day-card fade-in">
-        <p class="day-number">Jour 4</p>
-        <h3 class="day-route">Chegaga &mdash; M'Hamid</h3>
+        <p class="day-number">Jour 4 &middot; 05 mai</p>
+        <h3 class="day-route">Erg Chegaga &mdash; M'Hamid &mdash; Zagora</h3>
         <p class="day-description">
-          Depart tot le matin pour profiter des dunes de sable.
-          Direction M'Hamid avec dejeuner.
+          Depart a l'aube (lever de soleil conseille). Traversee des dunes
+          puis pistes vers M'Hamid pour le dejeuner.
+          Reprise des machines vers Zagora : dunes, pistes roulantes et oueds.
         </p>
         <div class="day-tags">
+          <span class="tag tag-highlight"><span class="tag-icon">&#128205;</span> ~160 km &middot; ~80 % piste</span>
           <span class="tag tag-highlight"><span class="tag-icon">&#127749;</span> Lever de soleil sur les dunes</span>
-          <span class="tag tag-hotel"><span class="tag-icon">&#127976;</span> Hotel Le Pacha</span>
+          <a class="tag tag-hotel" href="https://www.booking.com/hotel/ma/camping-paradis-touareg.html" target="_blank" rel="noopener"><span class="tag-icon">&#127976;</span> Paradis Touareg &mdash; Zagora</a>
         </div>
       </article>
 
       <!-- JOUR 5 -->
       <article class="day-card fade-in">
-        <p class="day-number">Jour 5</p>
-        <h3 class="day-route">M'Hamid &mdash; Foum Zguid</h3>
+        <p class="day-number">Jour 5 &middot; 06 mai</p>
+        <h3 class="day-route">Zagora &mdash; N'Kob &mdash; Skoura</h3>
         <p class="day-description">
-          Retour vers Foum Zguid pour la fin du raid.
+          Depart vers N'Kob, dejeuner, puis continuation vers Skoura.
+          Mix pistes et liaisons routieres, paysages de palmeraies et de montagnes.
         </p>
         <div class="day-tags">
+          <span class="tag tag-highlight"><span class="tag-icon">&#128205;</span> ~200 km &middot; ~50 % piste</span>
+          <a class="tag tag-hotel" href="https://www.booking.com/hotel/ma/ait-ben-hada.html" target="_blank" rel="noopener"><span class="tag-icon">&#127976;</span> Kasbah Ait Ben Haddou &mdash; Skoura</a>
+        </div>
+      </article>
+
+      <!-- JOUR 6 -->
+      <article class="day-card fade-in">
+        <p class="day-number">Jour 6 &middot; 07 mai &middot; Fin du raid</p>
+        <h3 class="day-route">Skoura &mdash; Ait Ben Haddou &mdash; Marrakech</h3>
+        <p class="day-description">
+          Depart vers Ait Ben Haddou. Dejeuner et fin du raid vers 14h30.
+          Retour en van vers Marrakech (~180 km, environ 3h).
+        </p>
+        <div class="day-tags">
+          <span class="tag tag-highlight"><span class="tag-icon">&#128205;</span> ~90 km raid &middot; ~40 % piste</span>
+          <span class="tag tag-highlight"><span class="tag-icon">&#128666;</span> ~180 km route retour</span>
           <span class="tag tag-highlight"><span class="tag-icon">&#127937;</span> Fin du raid</span>
         </div>
       </article>
@@ -611,24 +655,28 @@
     </div>
   </section>
 
-  <!-- RETOUR -->
+  <!-- TRANSFERTS -->
   <section class="return-section">
     <div class="return-card fade-in">
-      <h3 class="return-title">Retour</h3>
+      <h3 class="return-title">Transferts inclus</h3>
       <div class="return-detail">
         <span class="return-icon">&#128656;</span>
-        <span>Retour vers Marrakech en van</span>
+        <span>Aller : Marrakech &rarr; Foum Zguid en van (~350 km)</span>
+      </div>
+      <div class="return-detail">
+        <span class="return-icon">&#128656;</span>
+        <span>Retour : Ait Ben Haddou &rarr; Marrakech en van (~180 km)</span>
       </div>
       <div class="return-detail">
         <span class="return-icon">&#128666;</span>
-        <span>Quads transportes sur remorque</span>
+        <span>Quads et buggys transportes sur remorque</span>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>RAID GRAND SUD &mdash; MAROC</p>
+    <p>RAID SUD MAROC &mdash; QUAD &amp; BUGGY</p>
   </footer>
 
   <script>
@@ -651,69 +699,82 @@
       maxZoom: 15
     }).addTo(map);
 
-    const overviewBounds = [[29.15, -7.20], [30.50, -5.55]];
+    const overviewBounds = [[29.20, -8.10], [31.75, -5.55]];
     map.fitBounds(overviewBounds, { padding: [20, 20] });
 
     // ── Etapes data ──
     const etapes = [
       {
-        day: 'J1', title: 'Foum Zguid \u2192 Aguinane',
-        subtitle: 'A/R mise en jambe',
-        km: '', duree: '',
-        points: [[29.97,-6.87],[29.52,-7.05]],
-        retour: [[29.52,-7.05],[29.97,-6.87]],
+        day: 'J1', title: 'Marrakech \u2192 Foum Zguid',
+        subtitle: 'Transfert van',
+        km: '~350 km', duree: 'route',
+        points: [[31.63,-7.99],[29.97,-6.87]],
+        transfer: true,
         markers: [
-          { name: 'Foum Zguid', coord: [29.97,-6.87], type: 'night' },
-          { name: 'Aguinane', coord: [29.52,-7.05], type: 'pass' }
+          { name: 'Marrakech', coord: [31.63,-7.99], type: 'pass' },
+          { name: 'Foum Zguid', coord: [29.97,-6.87], type: 'night' }
         ]
       },
       {
-        day: 'J2', title: 'Foum Zguid \u2192 Zagora',
-        subtitle: 'Via Tissint',
-        km: '', duree: '',
-        points: [[29.97,-6.87],[29.58,-7.08],[30.33,-5.84]],
+        day: 'J2', title: 'Foum Zguid \u2192 Tissint',
+        subtitle: 'Via Aguinane',
+        km: '~120 km', duree: '~90 % piste',
+        points: [[29.97,-6.87],[29.52,-7.05],[29.85,-7.31]],
         markers: [
           { name: 'Foum Zguid', coord: [29.97,-6.87], type: 'pass' },
-          { name: 'Tissint', coord: [29.58,-7.08], type: 'pass' },
+          { name: 'Aguinane', coord: [29.52,-7.05], type: 'pass' },
+          { name: 'Tissint', coord: [29.85,-7.31], type: 'night' }
+        ]
+      },
+      {
+        day: 'J3', title: 'Tissint \u2192 Erg Chegaga',
+        subtitle: 'Lac Iriki & dunes',
+        km: '~150 km', duree: '~95 % piste',
+        points: [[29.85,-7.31],[29.50,-6.45],[29.40,-6.05]],
+        markers: [
+          { name: 'Tissint', coord: [29.85,-7.31], type: 'pass' },
+          { name: 'Lac Iriki', coord: [29.50,-6.45], type: 'pass' },
+          { name: 'Erg Chegaga', coord: [29.40,-6.05], type: 'night' }
+        ]
+      },
+      {
+        day: 'J4', title: 'Chegaga \u2192 Zagora',
+        subtitle: "Via M'Hamid",
+        km: '~160 km', duree: '~80 % piste',
+        points: [[29.40,-6.05],[29.83,-5.72],[30.33,-5.84]],
+        markers: [
+          { name: 'Erg Chegaga', coord: [29.40,-6.05], type: 'pass' },
+          { name: "M'Hamid", coord: [29.83,-5.72], type: 'pass' },
           { name: 'Zagora', coord: [30.33,-5.84], type: 'night' }
         ]
       },
       {
-        day: 'J3', title: 'Zagora \u2192 Erg Chegaga',
-        subtitle: 'Lac Iriki & dunes',
-        km: '', duree: '',
-        points: [[30.33,-5.84],[29.50,-6.20],[29.32,-6.28]],
+        day: 'J5', title: 'Zagora \u2192 Skoura',
+        subtitle: "Via N'Kob",
+        km: '~200 km', duree: '~50 % piste',
+        points: [[30.33,-5.84],[30.87,-5.86],[31.07,-6.55]],
         markers: [
           { name: 'Zagora', coord: [30.33,-5.84], type: 'pass' },
-          { name: 'Lac Iriki', coord: [29.50,-6.20], type: 'pass' },
-          { name: 'Erg Chegaga', coord: [29.32,-6.28], type: 'night' }
+          { name: "N'Kob", coord: [30.87,-5.86], type: 'pass' },
+          { name: 'Skoura', coord: [31.07,-6.55], type: 'night' }
         ]
       },
       {
-        day: 'J4', title: 'Chegaga \u2192 M\'Hamid',
-        subtitle: 'Desert & oasis',
-        km: '', duree: '',
-        points: [[29.32,-6.28],[29.83,-5.72]],
+        day: 'J6', title: 'Skoura \u2192 Marrakech',
+        subtitle: 'Via Ait Ben Haddou',
+        km: '~90 km raid', duree: '+ ~180 km route',
+        points: [[31.07,-6.55],[31.05,-7.13],[31.63,-7.99]],
+        transferLeg: 1,
         markers: [
-          { name: 'Erg Chegaga', coord: [29.32,-6.28], type: 'pass' },
-          { name: "M'Hamid", coord: [29.83,-5.72], type: 'night' }
-        ]
-      },
-      {
-        day: 'J5', title: 'M\'Hamid \u2192 Foum Zguid',
-        subtitle: 'Retour base',
-        km: '', duree: '',
-        points: [[29.83,-5.72],[29.97,-6.87]],
-        markers: [
-          { name: "M'Hamid", coord: [29.83,-5.72], type: 'pass' },
-          { name: 'Foum Zguid', coord: [29.97,-6.87], type: 'night' }
+          { name: 'Skoura', coord: [31.07,-6.55], type: 'pass' },
+          { name: 'Ait Ben Haddou', coord: [31.05,-7.13], type: 'pass' },
+          { name: 'Marrakech', coord: [31.63,-7.99], type: 'pass' }
         ]
       }
     ];
 
     // ── Draw ghost route (full circuit, always visible, very faint) ──
     const fullRoute = etapes.flatMap(e => e.points);
-    fullRoute.push(etapes[0].points[0]); // close the loop visually
     L.polyline(fullRoute, {
       color: '#999', weight: 2, opacity: 0.25, lineCap: 'round', lineJoin: 'round', dashArray: '6 4'
     }).addTo(map);
@@ -722,24 +783,46 @@
     const etapeLayers = etapes.map((et, i) => {
       const group = L.layerGroup();
 
-      // White outline
-      L.polyline(et.points, {
-        color: '#fff', weight: 9, opacity: 0.6, lineCap: 'round', lineJoin: 'round'
-      }).addTo(group);
-
-      // Colored segment
-      L.polyline(et.points, {
-        color: '#8B1A2B', weight: 5, opacity: 1, lineCap: 'round', lineJoin: 'round'
-      }).arrowheads({
-        frequency: '80px', size: '12px', fill: true, fillColor: '#8B1A2B', color: '#8B1A2B', yawn: 50
-      }).addTo(group);
-
-      // J1 return leg
-      if (et.retour) {
-        L.polyline(et.retour, {
-          color: '#8B1A2B', weight: 3, opacity: 0.5, dashArray: '8 6', lineCap: 'round'
+      if (et.transfer) {
+        // Full transfer leg (van/route): dashed, no white outline
+        L.polyline(et.points, {
+          color: '#8B1A2B', weight: 3, opacity: 0.6, dashArray: '8 6', lineCap: 'round'
         }).arrowheads({
           frequency: '100px', size: '10px', fill: true, fillColor: '#8B1A2B', color: '#8B1A2B', yawn: 45
+        }).addTo(group);
+      } else if (typeof et.transferLeg === 'number') {
+        // Mixed: piste segment + transfer segment
+        const pisteSeg = et.points.slice(0, et.transferLeg + 1);
+        const transferSeg = et.points.slice(et.transferLeg);
+
+        // White outline on piste
+        L.polyline(pisteSeg, {
+          color: '#fff', weight: 9, opacity: 0.6, lineCap: 'round', lineJoin: 'round'
+        }).addTo(group);
+        // Piste colored
+        L.polyline(pisteSeg, {
+          color: '#8B1A2B', weight: 5, opacity: 1, lineCap: 'round', lineJoin: 'round'
+        }).arrowheads({
+          frequency: '80px', size: '12px', fill: true, fillColor: '#8B1A2B', color: '#8B1A2B', yawn: 50
+        }).addTo(group);
+        // Transfer dashed
+        L.polyline(transferSeg, {
+          color: '#8B1A2B', weight: 3, opacity: 0.6, dashArray: '8 6', lineCap: 'round'
+        }).arrowheads({
+          frequency: '100px', size: '10px', fill: true, fillColor: '#8B1A2B', color: '#8B1A2B', yawn: 45
+        }).addTo(group);
+      } else {
+        // Standard piste etape
+        // White outline
+        L.polyline(et.points, {
+          color: '#fff', weight: 9, opacity: 0.6, lineCap: 'round', lineJoin: 'round'
+        }).addTo(group);
+
+        // Colored segment
+        L.polyline(et.points, {
+          color: '#8B1A2B', weight: 5, opacity: 1, lineCap: 'round', lineJoin: 'round'
+        }).arrowheads({
+          frequency: '80px', size: '12px', fill: true, fillColor: '#8B1A2B', color: '#8B1A2B', yawn: 50
         }).addTo(group);
       }
 
@@ -803,7 +886,6 @@
 
       // Fly to segment bounds
       const bounds = L.latLngBounds(etapes[idx].points);
-      if (etapes[idx].retour) etapes[idx].retour.forEach(p => bounds.extend(p));
       map.flyToBounds(bounds, { padding: [60, 60], duration: 0.8 });
     }
 
