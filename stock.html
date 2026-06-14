@@ -171,6 +171,8 @@
     padding:3px 6px;border-radius:4px;background:#efede7;color:var(--ink-soft);white-space:nowrap;
   }
   .badge-type[data-t="display"]{background:#e8eef5;color:#2d567f;}
+  .badge-type[data-t="demi-display"]{background:#eef2f8;color:#476089;}
+  .badge-type[data-t="display-minitin"]{background:#e9f1ef;color:#3a6b64;}
   .badge-type[data-t="etb"]{background:#ede9f4;color:#5a4a86;}
   .badge-type[data-t="coffret"]{background:#f1ece2;color:#7a5a25;}
   .badge-type[data-t="bundle"]{background:#e6f0ea;color:#2f6b4a;}
@@ -1692,6 +1694,8 @@ _Snapshot 2026-06-13. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
   /* ---------------- type normalisation ---------------- */
   function typeKey(t){
     const x = t.toLowerCase();
+    if(x.includes("demi")) return "demi-display";
+    if(x.includes("mini-tin")||x.includes("mini tin")) return "display-minitin";
     if(x.includes("display de bundle")) return "bundle-display";
     if(x.includes("display")) return "display";
     if(x.includes("etb")||x.includes("trove")) return "etb";
@@ -1699,7 +1703,7 @@ _Snapshot 2026-06-13. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
     if(x.includes("coffret")) return "coffret";
     return "autre";
   }
-  const TYPE_LABEL = {display:"Display",etb:"ETB",coffret:"Coffret",bundle:"Bundle","bundle-display":"Disp. bundle",autre:"Autre"};
+  const TYPE_LABEL = {display:"Display","demi-display":"Demi-display","display-minitin":"Disp. mini-tins",etb:"ETB",coffret:"Coffret",bundle:"Bundle","bundle-display":"Disp. bundle",autre:"Autre"};
 
   function uniMeta(name){
     const n = name.toLowerCase();
@@ -1858,7 +1862,7 @@ _Snapshot 2026-06-13. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
     uniChips.appendChild(b);
   });
   // type chips (from data, ordered)
-  const typeOrder=["display","etb","coffret","bundle","bundle-display","autre"];
+  const typeOrder=["display","demi-display","display-minitin","etb","coffret","bundle","bundle-display","autre"];
   const typeCounts={};
   DATA.universes.forEach(u=>u.sets.forEach(s=>s.products.forEach(p=>{typeCounts[p.tkey]=(typeCounts[p.tkey]||0)+1;})));
   const typeChips=document.getElementById("type-chips");
