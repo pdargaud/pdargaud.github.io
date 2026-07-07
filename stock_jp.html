@@ -239,6 +239,41 @@
   .cmref a:hover{color:var(--ink);border-color:#bdbab1;background:var(--surface);}
   .cmref.nok{color:var(--faint);font-style:italic;}
 
+  /* delta vs run précédent : badge à côté du nom + détail dans le produit déplié + encadré en tête */
+  .badge-delta{
+    font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    border-radius:3px;padding:1.5px 5px;margin-left:7px;vertical-align:2px;white-space:nowrap;
+  }
+  /* marge vs Cardmarket : vert = plancher CM nettement au-dessus du meilleur prix boutique (≥ +15 %) */
+  .badge-cm{
+    font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.04em;
+    border-radius:3px;padding:1.5px 5px;margin-left:7px;vertical-align:2px;white-space:nowrap;
+  }
+  .badge-cm[data-lvl="hi"]{background:var(--best-bg);color:var(--best);}
+  .badge-cm[data-lvl="lo"]{background:var(--surface-2);color:var(--muted);border:1px solid var(--line);}
+  .badge-delta[data-d="nouveau"],.dcount[data-d="nouveau"]{background:var(--best-bg);color:var(--best);}
+  .badge-delta[data-d="reassort"],.dcount[data-d="reassort"]{background:#e8eef5;color:#2d567f;}
+  .badge-delta[data-d="baisse"],.dcount[data-d="baisse"]{background:var(--hot-bg);color:var(--hot);}
+  .badge-delta[data-d="plancher"],.dcount[data-d="plancher"]{background:var(--warn-bg);color:var(--warn);}
+  .deltaline{display:none;gap:7px;align-items:center;flex-wrap:wrap;padding:6px 12px 9px;font-size:11px;color:var(--ink-soft);background:var(--surface-2);}
+  .prod.open .deltaline{display:flex;}
+  .deltaline .dlbl{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);}
+  .deltabar{
+    display:flex;gap:8px 14px;align-items:center;flex-wrap:wrap;
+    background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--best);
+    border-radius:var(--radius);box-shadow:var(--shadow);padding:9px 13px;margin:0 0 14px;
+  }
+  .deltabar .dtitle{font-weight:650;font-size:12.5px;}
+  .deltabar .dcounts{display:flex;gap:6px;flex-wrap:wrap;}
+  .deltabar .dcount{font-family:var(--mono);font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap;}
+  .deltabar .dfilter{
+    margin-left:auto;border:1px solid var(--line-strong);background:var(--surface);
+    font-family:var(--sans);font-size:12px;font-weight:600;color:var(--ink-soft);
+    padding:5px 11px;border-radius:999px;cursor:pointer;white-space:nowrap;
+  }
+  .deltabar .dfilter:hover{border-color:#c4c1b8;}
+  .deltabar .dfilter[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);}
+
   .empty{text-align:center;color:var(--muted);padding:60px 20px;font-size:14px;}
   .empty b{color:var(--ink);}
 
@@ -269,11 +304,65 @@
 
 <!-- ====== DONNÉES BRUTES (Markdown de la veille) ======
      Pour mettre à jour : remplacer tout le contenu de ce bloc par le nouveau Markdown. -->
-<script type="text/markdown" id="veille-data"># Veille stock JP — Pokémon / One Piece / Lorcana — 2026-06-29
+<script type="text/markdown" id="veille-data"># Veille stock JP — Pokémon / One Piece / Lorcana — 2026-07-07
 
-**Langue : JP.** 18 sites · 168 références. Classé par univers, puis par set (référentiels Cardmarket), puis par type de produit (display, ETB, bundle, coffret). Pour chaque produit, sites du moins cher au plus cher (**gras = le moins cher**). Lien = fiche produit.
+**Langue : JP.** 16 sites · 168 références. Classé par univers, puis par set (référentiels Cardmarket), puis par type de produit (display, ETB, bundle, coffret). Pour chaque produit, sites du moins cher au plus cher (**gras = le moins cher**). Lien = fiche produit.
 
-Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizette Family, Hama Cards, Hikaru Distribution, Invest Collect, Kairyu, Key Two, Le Coin des Barons, Lector Shop, Magic Franco, Outpost Brussels, Plume et Pion, Pokelite, Sakuro.
+Sites : Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Hama Cards, Hikaru Distribution, Invest Collect, Kairyu, Key Two, Le Coin des Barons, Le Temple du Jeu, Lector Shop, Magic Franco, Plume et Pion, Pokelite, Sakuro.
+
+
+# 🆕 Depuis le dernier run (2026-06-29)
+
+> Comparaison 2026-06-29 → 2026-07-07, limitée aux 50 sites présents dans les deux scans. Baisses retenues à partir de 5 %.
+
+**Nouveaux produits** — aucun site ne les avait au run précédent
+
+| Article | Meilleur prix | Site | Lien |
+|---|---|---|---|
+| Coffret — Pokémon TCG – Coffret File Set Black Bolt / White Flare | 69,90 € | Figuyatta | [fiche](https://www.figuyatta.com/produit/pokemon-tcg-coffret-file-set-black-bolt-white-flare/) |
+| Display — Lorcana — Chapitre 1 : Premier Chapitre | 54,99 € | Sakuro | [fiche](https://sakuro.fr/products/display-lorcana-the-first-chapter-jp) |
+| Display — SL06 Lumière Interdite | 1799,90 € | Hikaru Distribution | [fiche](https://hikarudistribution.com/products/display-pokemon-lumiere-interdite-sl06-francais) |
+| Display — SL08 Tonnerre Perdu | 2999,90 € | Hikaru Distribution | [fiche](https://hikarudistribution.com/products/display-tonnerre-perdu-sl8-francais) |
+| Display — SL12 Éclipse Cosmique | 5490,00 € | Hikaru Distribution | [fiche](https://hikarudistribution.com/products/display-eclipse-cosmique-sl12-francais) |
+
+**Réassorts** — offre de retour en stock (absente du run précédent)
+
+| Article | Site | Prix | Lien |
+|---|---|---|---|
+| Coffret — Coffret Fukuoka Pokémon Center – Pokémon JAPONAIS | Pokelite | 194,90 € | [fiche](https://www.pokelite.fr/produit/coffret-fukuoka-pokemon-center-pokemon-japonais/) |
+| Coffret — Coffret Hiroshima Pokémon Center – Pokémon JAPONAIS | Pokelite | 204,90 € | [fiche](https://www.pokelite.fr/produit/coffret-hiroshima-pokemon-center-pokemon-japonais/) |
+| Coffret — Coffret Tohoku Pokémon Center – Pokémon JAPONAIS | Pokelite | 159,90 € | [fiche](https://www.pokelite.fr/produit/coffret-tohoku-pokemon-center-pokemon-japonais/) |
+| Coffret — One Piece Special Goods Set - Japonais | Le Temple du Jeu | 64,90 € | [fiche](https://www.letempledujeu.fr/zoom1088401.html) |
+| Coffret — UTA Collection One Piece - Japonais | Le Temple du Jeu | 75,90 € | [fiche](https://www.letempledujeu.fr/zoom1092949.html) |
+| Display — M5 | Figuyatta | 99,90 € | [fiche](https://www.figuyatta.com/produit/pokemon-display-m5-abyss-eye-boite-x30-boosters-jp/) |
+| Display — SV7 Stellar Miracle (JP) | Hama Cards | 69,90 € | [fiche](https://www.hamacards.com/produit/display-pokemon-japonaise-stellar-miracle-sv7/) |
+| Display — SV8 | Blazing Tail | 94,90 € | [fiche](https://www.blazingtail.fr/69651-29282-pokemon-display-pokemon-super-electric-breaker-sv8-en-japonais.html) |
+
+**Baisses de prix** — même offre, prix en baisse
+
+| Article | Site | Avant → Après | Lien |
+|---|---|---|---|
+| Coffret — Coffret Pokémon - SV11 Black Bolt White Flare File Set - Jap | Bien Jouets | 89,90 € → 76,42 € (−15 %) | [fiche](https://bienjouets.fr/pokemon/6347-coffret-pokemon-sv11-black-bolt-white-flare-file-set-japonais) |
+| Display — M1L Mega Brave (JP) | Bien Jouets | 124,90 € → 106,17 € (−15 %) | [fiche](https://bienjouets.fr/pokemon/6283-pokemon-display-m1l-mega-brave-japonais-) |
+| Display — M1L Mega Brave (JP) | Kairyu | 129,90 € → 99,90 € (−23 %) | [fiche](https://kairyu.fr/products/scelle-display-m1l-mega-brave-jap) |
+| Display — M1S Mega Symphonia (JP) | Hikaru Distribution | 81,90 € → 74,90 € (−9 %) | [fiche](https://hikarudistribution.com/products/display-mega-symphonia-m1s-japonais) |
+| Display — M4 Ninja Spinner (JP) | Pokelite | 94,90 € → 89,90 € (−5 %) | [fiche](https://www.pokelite.fr/produit/display-ninja-spinner-pokemon-m4/) |
+| Display — OP14 Les Sept de la Mer d'Azur | Pokelite | 77,90 € → 72,90 € (−6 %) | [fiche](https://www.pokelite.fr/produit/display-the-azure-seas-seven-one-piece-op14/) |
+| Display — OP15 Aventure sur l'Île de Dieu | Pokelite | 94,90 € → 89,90 € (−5 %) | [fiche](https://www.pokelite.fr/produit/display-adventure-on-kamis-island-one-piece-op15-japonais/) |
+| Display — Pokémon - Display S11a Ancandescent Arcana - 20 boosters (Ja | Bien Jouets | 119,90 € → 101,92 € (−15 %) | [fiche](https://bienjouets.fr/pokemon/5913-pokemon-display-s11a-ancandescent-arcana-20-boosters-japonaises) |
+| Display — SV2A | Hikaru Distribution | 369,90 € → 329,90 € (−11 %) | [fiche](https://hikarudistribution.com/products/display-pokemon-151-sv2a-japonais) |
+
+**Nouveaux prix planchers** — prix min tous sites en baisse
+
+| Article | Avant → Après | Site | Lien |
+|---|---|---|---|
+| Coffret — Coffret Pokémon - SV11 Black Bolt White Flare File Set - Jap | 89,90 € → 76,42 € (−15 %) | Bien Jouets | [fiche](https://bienjouets.fr/pokemon/6347-coffret-pokemon-sv11-black-bolt-white-flare-file-set-japonais) |
+| Display — M1S Mega Symphonia (JP) | 81,90 € → 74,90 € (−9 %) | Hikaru Distribution | [fiche](https://hikarudistribution.com/products/display-mega-symphonia-m1s-japonais) |
+| Display — OP14 Les Sept de la Mer d'Azur | 77,90 € → 72,90 € (−6 %) | Pokelite | [fiche](https://www.pokelite.fr/produit/display-the-azure-seas-seven-one-piece-op14/) |
+| Display — OP15 Aventure sur l'Île de Dieu | 94,90 € → 89,90 € (−5 %) | Pokelite | [fiche](https://www.pokelite.fr/produit/display-adventure-on-kamis-island-one-piece-op15-japonais/) |
+| Display — SV2A | 369,90 € → 329,90 € (−11 %) | Hikaru Distribution | [fiche](https://hikarudistribution.com/products/display-pokemon-151-sv2a-japonais) |
+| Display — SV7 Stellar Miracle (JP) | 74,90 € → 69,90 € (−7 %) | Hama Cards | [fiche](https://www.hamacards.com/produit/display-pokemon-japonaise-stellar-miracle-sv7/) |
+| Display — SV8 | 199,90 € → 94,90 € (−53 %) | Blazing Tail | [fiche](https://www.blazingtail.fr/69651-29282-pokemon-display-pokemon-super-electric-breaker-sv8-en-japonais.html) |
 
 
 # 🔴 Pokémon
@@ -281,18 +370,19 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## M1L Mega Brave (JP)
 
 **Display** — M1L Mega Brave (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
+> [delta] baisse Bien Jouets 124,90 € → 106,17 € (−15 %) ; baisse Kairyu 129,90 € → 99,90 € (−23 %)
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hikaru Distribution** | **89.90 €** | [fiche](https://hikarudistribution.com/products/display-mega-brave-m1l-japonais) | Display Mega Brave - M1L - Japonais |
+| Kairyu | 99.90 € | [fiche](https://kairyu.fr/products/scelle-display-m1l-mega-brave-jap) | [SCELLE] Display M1L - Mega Brave [JAP] - Japo |
 | Fuji Store | 104.90 € | [fiche](https://fuji-store.fr/produit/display-mega-brave-m1l-japonais-2025-pokemon/) | DISPLAY MEGA BRAVE – M1L – JAPONAIS 2025 POKEM |
+| Bien Jouets | 106.17 € | [fiche](https://bienjouets.fr/pokemon/6283-pokemon-display-m1l-mega-brave-japonais-) | Pokémon - display M1L Mega Brave - Japonais |
 | Figuyatta | 109.90 € | [fiche](https://www.figuyatta.com/produit/pokemon-tcg-mega-brave-m1l-display-boite-x30-boosters-jp/) | Pokémon TCG – Mega Brave M1L Display Boîte x30 |
 | Lector Shop | 120.00 € | [fiche](https://lectorshop.com/products/display-pokemon-m1l-mega-brave-scelle-japonais) | Display - Pokémon - M1L - Méga Brave - Scellé  |
-| Bien Jouets | 124.90 € | [fiche](https://bienjouets.fr/pokemon/6283-pokemon-display-m1l-mega-brave-japonais-) | Pokémon - display M1L Mega Brave - Japonais |
-| Kairyu | 129.90 € | [fiche](https://kairyu.fr/products/scelle-display-m1l-mega-brave-jap) | [SCELLE] Display M1L - Mega Brave [JAP] - Japo |
 
 **Coffret** — Coffret Pokémon Center MEGA BRAVE - Pokémon Center Official
-> [cmref] hors-couverture |  |  |  | 
+> [cmref] hors-couverture |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hikaru Distribution** | **199.90 €** | [fiche](https://hikarudistribution.com/products/coffret-pokemon-center-mega-brave-pokemon-center-official) | Coffret Pokémon Center MEGA BRAVE - Pokémon Ce |
@@ -300,18 +390,19 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## M1S Mega Symphonia (JP)
 
 **Display** — M1S Mega Symphonia (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
+> [delta] baisse Hikaru Distribution 81,90 € → 74,90 € (−9 %) ; plancher 81,90 € → 74,90 € (−9 %)
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Hikaru Distribution** | **81.90 €** | [fiche](https://hikarudistribution.com/products/display-mega-symphonia-m1s-japonais) | Display Mega Symphonia- M1S - Japonais |
-| Kairyu | 89.90 € | [fiche](https://kairyu.fr/products/scelle-display-m1s-mega-symphonia-jap) | [SCELLE] Display M1S - Mega Symphonia [JAP] -  |
+| **Hikaru Distribution** | **74.90 €** | [fiche](https://hikarudistribution.com/products/display-mega-symphonia-m1s-japonais) | Display Mega Symphonia- M1S - Japonais |
+| Kairyu | 94.90 € | [fiche](https://kairyu.fr/products/scelle-display-m1s-mega-symphonia-jap) | [SCELLE] Display M1S - Mega Symphonia [JAP] -  |
 | Figuyatta | 99.90 € | [fiche](https://www.figuyatta.com/produit/pokemon-tcg-mega-symphonia-m1s-display-boite-x30-boosters-jp/) | Pokémon TCG – Mega Symphonia M1S Display Boîte |
 | Fuji Store | 104.90 € | [fiche](https://fuji-store.fr/produit/display-mega-symphonia-m1s-japonais-20255-pokemon/) | DISPLAY MEGA SYMPHONIA – M1S – JAPONAIS 20255  |
 
 ## M2
 
 **Display** — M2
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hikaru Distribution** | **74.90 €** | [fiche](https://hikarudistribution.com/products/display-pokemon-mega-inferno-x-m-japonais) | Display Inferno X - M2 - Japonais |
@@ -320,16 +411,16 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## M2a Mega Dream ex (JP)
 
 **Display** — M2a Mega Dream ex (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Hikaru Distribution** | **94.90 €** | [fiche](https://hikarudistribution.com/products/display-mega-dream-ex-m-japonais) | Display MEGA Dream ex - M2A - Japonais |
+| **Hikaru Distribution** | **94.90 €** | [fiche](https://hikarudistribution.com/products/display-mega-dream-ex-m-japonais) | Display MEGA Dream ex - M2A - Japonais |
 | Lector Shop | 140.00 € | [fiche](https://lectorshop.com/products/display-pokemon-m2a-mega-dream-ex-scellee-japonais) | Display Pokémon M2a Mega Dream EX - Scellée -  |
 
 ## M3 Nihil Zero (JP)
 
 **Display** — M3 Nihil Zero (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hikaru Distribution** | **69.90 €** | [fiche](https://hikarudistribution.com/products/display-munikis-zero-m3-japonais) | Display Munikis Zero - M3 - Japonais |
@@ -337,7 +428,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 | Fuji Store | 79.90 € | [fiche](https://fuji-store.fr/produit/display-munikis-zero-m3-japonais-2026-pokemon/) | DISPLAY MUNIKIS ZERO – M3 – JAPONAIS 2026 POKE |
 
 **Coffret** — Pokémon - Coffret - Special Set MEGA-Gallame ex - Munikis Zero - en japonais
-> [cmref] hors-couverture |  |  |  | 
+> [cmref] hors-couverture |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Le Coin des Barons** | **44.99 €** | [fiche](https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/coffrets-pokemon/pokemon-coffret-special-set-mega-gallame-ex-munikis-zero-en-japonais/) | Pokémon - Coffret - Special Set MEGA-Gallame e |
@@ -345,33 +436,61 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## M4 Ninja Spinner (JP)
 
 **Display** — M4 Ninja Spinner (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
+> [delta] baisse Pokelite 94,90 € → 89,90 € (−5 %)
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Hikaru Distribution** | **84.90 €** | [fiche](https://hikarudistribution.com/products/display-mega-ninja-spinner-m3-japonais) | Display Ninja Spinner – M4 – Japonais - Japona |
-| Pokelite | 94.90 € | [fiche](https://www.pokelite.fr/produit/display-ninja-spinner-pokemon-m4/) | Display Ninja Spinner – Pokémon M4 JAPONAIS |
+| **Pokelite** | **89.90 €** | [fiche](https://www.pokelite.fr/produit/display-ninja-spinner-pokemon-m4/) | Display Ninja Spinner – Pokémon M4 JAPONAIS |
 | Magic Franco | 99.99 € | [fiche](https://shop.magicfranco.be/pokemon/56021-pokemon-ninja-spinner-m4-display-30-boosters-jpn-4521329432786.html) | Pokémon - Ninja Spinner (M4) - Display 30 Boos |
 
 ## M5
 
 **Display** — M5
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
+> [delta] reassort Figuyatta
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Hikaru Distribution** | **94.90 €** | [fiche](https://hikarudistribution.com/products/display-mega-abyss-eye-m-japonais) | Display MEGA Abyss Eye - M5 - Japonais |
+| **Figuyatta** | **99.90 €** | [fiche](https://www.figuyatta.com/produit/pokemon-display-m5-abyss-eye-boite-x30-boosters-jp/) | Pokémon – Display M5 Abyss Eye – Boîte x30 Boo |
+
+## SL06 Lumière Interdite
+
+**Display** — SL06 Lumière Interdite
+> [cmref] manquant |  |  |  |  | 
+> [delta] nouveau
+| Site | Prix | Lien | Intitulé du site |
+|---|---|---|---|
+| **Hikaru Distribution** | **1799.90 €** | [fiche](https://hikarudistribution.com/products/display-pokemon-lumiere-interdite-sl06-francais) | Display Pokémon – Lumière Interdite – SL06 – F |
+
+## SL08 Tonnerre Perdu
+
+**Display** — SL08 Tonnerre Perdu
+> [cmref] manquant |  |  |  |  | 
+> [delta] nouveau
+| Site | Prix | Lien | Intitulé du site |
+|---|---|---|---|
+| **Hikaru Distribution** | **2999.90 €** | [fiche](https://hikarudistribution.com/products/display-tonnerre-perdu-sl8-francais) | Display Pokémon – Tonnerre Perdu – SL08 – Fran |
+
+## SL12 Éclipse Cosmique
+
+**Display** — SL12 Éclipse Cosmique
+> [cmref] manquant |  |  |  |  | 
+> [delta] nouveau
+| Site | Prix | Lien | Intitulé du site |
+|---|---|---|---|
+| **Hikaru Distribution** | **5490.00 €** | [fiche](https://hikarudistribution.com/products/display-eclipse-cosmique-sl12-francais) | Display Éclipse Cosmique – SL12 – Pokémon JCC  |
 
 ## SM10B
 
 **Display** — SM10B
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Hikaru Distribution** | **649.90 €** | [fiche](https://hikarudistribution.com/products/display-pokemon-sm10b-sky-legend-japonais) | Display Pokémon SM10b Sky Legend – Japonais -  |
+| **Hikaru Distribution** | **649.90 €** | [fiche](https://hikarudistribution.com/products/display-pokemon-sm10b-sky-legend-japonais) | Display Pokémon SM10b Sky Legend – Japonais |
 
 ## SM4v Future Flash SM4v (JP)
 
 **Display** — SM4v Future Flash SM4v (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Lector Shop** | **89.90 €** | [fiche](https://lectorshop.com/products/display-pokemon-sm4v-future-flash-scellee-japonais) | Display Pokémon SM4v Future Flash- Scellée - J |
@@ -379,7 +498,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV01S
 
 **Display** — SV01S
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Kairyu** | **99.90 €** | [fiche](https://kairyu.fr/products/scelle-display-sv01s-scarlet-ex-jap) | [SCELLE] Display SV01S - Scarlet [JAP] - Japon |
@@ -387,7 +506,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV01V
 
 **Display** — SV01V
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Kairyu** | **79.90 €** | [fiche](https://kairyu.fr/products/scelle-display-sv01v-violet-ex-jap) | [SCELLE] Display SV01V - Violet ex [JAP] - Jap |
@@ -395,7 +514,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV08
 
 **Display** — SV08
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Kairyu** | **199.90 €** | [fiche](https://kairyu.fr/products/scelle-display-sv07-super-electric-breaker-jap) | [SCELLE] Display SV08 - Super Electric Breaker |
@@ -403,7 +522,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV10
 
 **Display** — SV10
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hikaru Distribution** | **199.90 €** | [fiche](https://hikarudistribution.com/products/display-glory-of-team-rocket) | Display The Glory of Team Rocket - SV10 - Japo |
@@ -411,15 +530,16 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV11
 
 **Coffret** — Coffret Pokémon - SV11 Black Bolt White Flare File Set - Japonais
-> [cmref] hors-couverture |  |  |  | 
+> [cmref] hors-couverture |  |  |  |  | 
+> [delta] baisse Bien Jouets 89,90 € → 76,42 € (−15 %) ; plancher 89,90 € → 76,42 € (−15 %)
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Bien Jouets** | **89.90 €** | [fiche](https://bienjouets.fr/pokemon/6347-coffret-pokemon-sv11-black-bolt-white-flare-file-set-japonais) | Coffret Pokémon - SV11 Black Bolt White Flare  |
+| **Bien Jouets** | **76.42 €** | [fiche](https://bienjouets.fr/pokemon/6347-coffret-pokemon-sv11-black-bolt-white-flare-file-set-japonais) | Coffret Pokémon - SV11 Black Bolt White Flare  |
 
 ## SV11B Black Bolt (JP)
 
 **Display** — SV11B Black Bolt (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Sakuro** | **139.99 €** | [fiche](https://sakuro.fr/products/display-deluxe-pokemon-black-bolt-jp) | Display deluxe Pokémon - Black Bolt - sv11B -  |
@@ -429,7 +549,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV11W White Flare (JP)
 
 **Display** — SV11W White Flare (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Sakuro** | **139.99 €** | [fiche](https://sakuro.fr/products/display-deluxe-pokemon-white-flare-jp) | Display deluxe Pokémon - White Flare - sv11W - |
@@ -437,10 +557,17 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 | Fuji Store | 185.00 € | [fiche](https://fuji-store.fr/produit/display-white-flare-sv11w-japonais-2025-pokemon/) | DISPLAY WHITE FLARE – SV11W – JAPONAIS 2025 PO |
 | Figuyatta | 210.00 € | [fiche](https://www.figuyatta.com/produit/pokemon-tcg-white-flare-jp-boite-boosters-x20-display-sv11w/) | Pokémon TCG – White Flare (JP) – Boîte Booster |
 
+**Coffret** — Pokémon TCG – Coffret File Set Black Bolt / White Flare
+> [cmref] hors-couverture |  |  |  |  | 
+> [delta] nouveau
+| Site | Prix | Lien | Intitulé du site |
+|---|---|---|---|
+| **Figuyatta** | **69.90 €** | [fiche](https://www.figuyatta.com/produit/pokemon-tcg-coffret-file-set-black-bolt-white-flare/) | Pokémon TCG – Coffret File Set Black Bolt / Wh |
+
 ## SV1A
 
 **Display** — SV1A
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hikaru Distribution** | **119.90 €** | [fiche](https://hikarudistribution.com/products/display-triplet-beat-sv1a-japonais) | Display Triplet Beat - SV1A - Japonais |
@@ -449,16 +576,15 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV1s Scarlet ex (JP)
 
 **Display** — SV1s Scarlet ex (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Hikaru Distribution** | **79.90 €** | [fiche](https://hikarudistribution.com/products/display-scarlet-ex-sv1s-japonais) | Display Scarlet ex - SV1S - Japonais |
-| Lector Shop | 105.00 € | [fiche](https://lectorshop.com/products/display-pokemon-sv1v-scarlet-ex-japonais) | Display - Pokémon - SV1s - Scarlet ex - Japona |
+| **Lector Shop** | **105.00 €** | [fiche](https://lectorshop.com/products/display-pokemon-sv1v-scarlet-ex-japonais) | Display - Pokémon - SV1s - Scarlet ex - Japona |
 
 ## SV1V
 
 **Display** — SV1V
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hikaru Distribution** | **84.90 €** | [fiche](https://hikarudistribution.com/products/display-violet-ex-sv1v-japonais) | Display Violet ex - SV1V - Japonais |
@@ -467,16 +593,17 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV2A
 
 **Display** — SV2A
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
+> [delta] baisse Hikaru Distribution 369,90 € → 329,90 € (−11 %) ; plancher 369,90 € → 329,90 € (−11 %)
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Hikaru Distribution** | **369.90 €** | [fiche](https://hikarudistribution.com/products/display-pokemon-151-sv2a-japonais) | Display Pokémon 151 - SV2A - Japonais |
+| **Hikaru Distribution** | **329.90 €** | [fiche](https://hikarudistribution.com/products/display-pokemon-151-sv2a-japonais) | Display Pokémon 151 - SV2A - Japonais |
 | Fuji Store | 450.00 € | [fiche](https://fuji-store.fr/produit/display-151-sv2a-japonais-2023-pokemon/) | DISPLAY 151 – SV2A – JAPONAIS 2023 POKEMON |
 
 ## SV2D
 
 **Display** — SV2D
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hikaru Distribution** | **94.90 €** | [fiche](https://hikarudistribution.com/products/display-clay-burst-sv2d-japonais) | Display Clay Burst - SV2D - Japonais |
@@ -487,7 +614,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV2p Snow Hasard (JP)
 
 **Display** — SV2p Snow Hasard (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Lector Shop** | **79.90 €** | [fiche](https://lectorshop.com/products/display-pokemon-sv2p-snow-hasard-japonais) | Display - Pokémon - SV2p - Snow Hasard - Japon |
@@ -498,7 +625,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV3
 
 **Display** — SV3
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Kairyu** | **129.90 €** | [fiche](https://kairyu.fr/products/scelle-display-sv3-ruler-of-the-black-flame-jap) | [SCELLE] Display SV3 - Ruler of the Black Flam |
@@ -508,30 +635,20 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV3A
 
 **Display** — SV3A
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Kairyu** | **94.90 €** | [fiche](https://kairyu.fr/products/scelle-display-sv3a-raging-surf-jap) | [SCELLE] Display SV3A - Raging Surf [JAP] - Ja |
 | Hikaru Distribution | 114.90 € | [fiche](https://hikarudistribution.com/products/display-raging-surf-sv3a-japonais) | Display Raging Surf - SV3A - Japonais |
 | Fuji Store | 115.00 € | [fiche](https://fuji-store.fr/produit/display-raging-surf-sv3a-japonais-2023-pokemon/) | DISPLAY RAGING SURF – SV3A – JAPONAIS 2023 POK |
 
-## SV4a Shiny Treasure (JP)
-
-**Display** — SV4a Shiny Treasure (JP)
-> [cmref] manquant |  |  |  | 
-| Site | Prix | Lien | Intitulé du site |
-|---|---|---|---|
-| **Bacchusia Jeux** | **130.00 €** | [fiche](https://www.bacchusia-jeux.com/pokemon-japonais/5609-pokemon-jap-scarlet-violet-display-sv4a-shiny-treasure-ex-high-class-pack.html) | Pokémon [JAP] Scarlet & Violet Display SV4A Sh |
-| Hikaru Distribution | 149.90 € | [fiche](https://hikarudistribution.com/products/display-shiny-treasure-sv4a-japonais) | Display Shiny Treasure - SV4A - Japonais |
-
 ## SV4k Ancient Roar (JP)
 
 **Display** — SV4k Ancient Roar (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hikaru Distribution** | **74.90 €** | [fiche](https://hikarudistribution.com/products/display-ancient-roar-sv4k-japonais) | Display Ancient Roar - SV4K - Japonais |
-| Bacchusia Jeux | 75.00 € | [fiche](https://www.bacchusia-jeux.com/pokemon-japonais/5608-pokemon-jap-scarlet-violet-display-sv4k-ancient-roar.html) | Pokémon [JAP] Scarlet & Violet Display SV4K An |
 | Fuji Store | 89.90 € | [fiche](https://fuji-store.fr/produit/display-ancient-roar-sv4k-japonais-2023-pokemon/) | DISPLAY ANCIENT ROAR – SV4K – JAPONAIS 2023 PO |
 | Kairyu | 89.90 € | [fiche](https://kairyu.fr/products/scelle-display-sv4k-ancient-roar-jap) | [SCELLE] Display SV4K - Ancient Roar [JAP] - J |
 | Lector Shop | 89.90 € | [fiche](https://lectorshop.com/products/display-pokemon-sv4k-ancient-roar-scellee-japonais) | Display Pokémon SV4k Ancient Roar - Scellée -  |
@@ -539,33 +656,31 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV4M Future Flash (JP)
 
 **Display** — SV4M Future Flash (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Bacchusia Jeux** | **75.00 €** | [fiche](https://www.bacchusia-jeux.com/pokemon-japonais/5607-pokemon-jap-scarlet-violet-display-sv4m-future-flash.html) | Pokémon [JAP] Scarlet & Violet Display SV4M Fu |
-| Hikaru Distribution | 84.90 € | [fiche](https://hikarudistribution.com/products/display-future-flash-sv4m-japonais) | Display Future Flash - SV4M - Japonais |
+| **Hikaru Distribution** | **84.90 €** | [fiche](https://hikarudistribution.com/products/display-future-flash-sv4m-japonais) | Display Future Flash - SV4M - Japonais |
 | Kairyu | 89.90 € | [fiche](https://kairyu.fr/products/scelle-display-sv4m-future-flash-jap) | [SCELLE] Display SV4M - Future Flash [JAP] - J |
 | Fuji Store | 99.00 € | [fiche](https://fuji-store.fr/produit/display-future-flash-sv4m-japonais-2023-pokemon/) | DISPLAY FUTURE FLASH – SV4M – JAPONAIS 2023 PO |
 
 ## SV5a Crimson Haze (JP)
 
 **Display** — SV5a Crimson Haze (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Blazing Tail** | **79.90 €** | [fiche](https://www.blazingtail.fr/69647-29278-pokemon-display-pokemon-crimson-haze-sv5a-en-japonais.html) | Pokémon - Display Pokémon - Crimson Haze SV5A  |
+| **Blazing Tail** | **79.90 €** | [fiche](https://www.blazingtail.fr/69647-29278-pokemon-display-pokemon-crimson-haze-sv5a-en-japonais.html) | Pokemon - Display Pokemon - Crimson Haze - SV5 |
 | Kairyu | 89.90 € | [fiche](https://kairyu.fr/products/scelle-display-sv5a-crimson-haze-jap) | [SCELLE] Display SV5A - Crimson Haze [JAP] - J |
-| Lector Shop | 99.90 € | [fiche](https://lectorshop.com/products/display-pokemon-sv5a-crimson-haze-scellee-japonais) | Display Pokémon SV5a Crimson Haze - Scellée -  |
 | Fuji Store | 109.90 € | [fiche](https://fuji-store.fr/produit/display-crimson-haze-sv5a-japonais-2024-pokemon/) | DISPLAY CRIMSON HAZE – SV5A – JAPONAIS 2024 PO |
 | Hikaru Distribution | 114.90 € | [fiche](https://hikarudistribution.com/products/display-crimson-haze-sv5a-japonais) | Display Crimson Haze - SV5A - Japonais |
 
 ## SV5K
 
 **Display** — SV5K
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Key Two** | **69.99 €** | [fiche](https://keytwo.be/produits-pokemon-scelles/908-display-pokemon-sv5k-ecarlate-et-violet-cyber-judge-japonais.html) | DISPLAY POKEMON SV5K - Écarlate et Violet Cybe |
+| **Key Two** | **69.99 €** | [fiche](https://keytwo.be/produits-pokemon-scelles/908-display-pokemon-sv5k-ecarlate-et-violet-cyber-judge-japonais.html) | Display Pokémon SV5K - Écarlate et Violet Cybe |
 | Kairyu | 84.90 € | [fiche](https://kairyu.fr/products/scelle-display-sv4m-wild-force-jap) | [SCELLE] Display SV5K - Wild Force [JAP] - Jap |
 | Fuji Store | 89.90 € | [fiche](https://fuji-store.fr/produit/display-wild-force-sv5k-japonais-2024-pokemon/) | DISPLAY WILD FORCE – SV5K – JAPONAIS 2024 POKE |
 | Hikaru Distribution | 109.90 € | [fiche](https://hikarudistribution.com/products/display-wild-force-sv5k-japonais) | Display Wild Force - SV5K - Japonais |
@@ -573,19 +688,19 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV5M Cyber Judge (JP)
 
 **Display** — SV5M Cyber Judge (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hikaru Distribution** | **74.90 €** | [fiche](https://hikarudistribution.com/products/display-cyber-judge-sv5m) | Display Cyber Judge - SV5M - Japonais |
 | Kairyu | 79.90 € | [fiche](https://kairyu.fr/products/scelle-display-sv4m-cyber-judge-jap) | [SCELLE] Display SV5M - Cyber Judge [JAP] - Ja |
-| Blazing Tail | 84.90 € | [fiche](https://www.blazingtail.fr/69650-29281-pokemon-display-pokemon-cyber-judge-sv5m-en-japonais.html) | Pokémon - Display Pokémon - Cyber Judge SV5M - |
+| Blazing Tail | 84.90 € | [fiche](https://www.blazingtail.fr/69650-29281-pokemon-display-pokemon-cyber-judge-sv5m-en-japonais.html) | Pokemon - Display Pokemon - Cyber Judge - SV5M |
 | Fuji Store | 89.00 € | [fiche](https://fuji-store.fr/produit/display-cyber-judge-sv5m-japonais-2024-pokemon/) | DISPLAY CYBER JUDGE – SV5M – JAPONAIS 2024 POK |
 | Lector Shop | 89.90 € | [fiche](https://lectorshop.com/products/display-pokemon-sv5m-cyber-judge-scellee-japonais) | Display Pokémon SV5m Cyber Judge - Scellée - J |
 
 ## SV6 Mask of Change (JP)
 
 **Display** — SV6 Mask of Change (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Kairyu** | **84.90 €** | [fiche](https://kairyu.fr/products/scelle-display-sv6-mask-of-change-jap) | [SCELLE] Display SV6 - Mask of Change [JAP] -  |
@@ -596,7 +711,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV6A Night Wanderer (JP)
 
 **Display** — SV6A Night Wanderer (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Fuji Store** | **79.90 €** | [fiche](https://fuji-store.fr/produit/display-night-wanderer-sv6a-japonais-2024-pokemon/) | DISPLAY NIGHT WANDERER – SV6A – JAPONAIS 2024  |
@@ -607,39 +722,42 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV7 Stellar Miracle (JP)
 
 **Display** — SV7 Stellar Miracle (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
+> [delta] reassort Hama Cards ; plancher 74,90 € → 69,90 € (−7 %)
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Kairyu** | **74.90 €** | [fiche](https://kairyu.fr/products/scelle-display-sv7-stellar-miracle-jap) | [SCELLE] Display SV7 - Stellar Miracle [JAP] - |
+| **Hama Cards** | **69.90 €** | [fiche](https://www.hamacards.com/produit/display-pokemon-japonaise-stellar-miracle-sv7/) | Display Pokémon Stellar Miracle (SV7) - Japona |
+| Kairyu | 74.90 € | [fiche](https://kairyu.fr/products/scelle-display-sv7-stellar-miracle-jap) | [SCELLE] Display SV7 - Stellar Miracle [JAP] - |
 | Lector Shop | 79.90 € | [fiche](https://lectorshop.com/products/display-pokemon-sv7-stellar-miracle-scellee-japonais) | Display Pokémon SV7 Stellar Miracle- Scellée - |
-| Blazing Tail | 84.90 € | [fiche](https://www.blazingtail.fr/69649-29280-pokemon-display-pokemon-stellar-miracle-sv7-en-japonais.html) | Pokémon - Display Pokémon - Stellar Miracle SV |
+| Blazing Tail | 84.90 € | [fiche](https://www.blazingtail.fr/69649-29280-pokemon-display-pokemon-stellar-miracle-sv7-en-japonais.html) | Pokemon - Display Pokemon - Stellar Miracle -  |
 | Hikaru Distribution | 99.90 € | [fiche](https://hikarudistribution.com/products/display-snow-hazard-sv2p-japnonais) | Display Stellar Miracle- SV7 - Japonais |
 | Fuji Store | 110.00 € | [fiche](https://fuji-store.fr/produit/display-stellar-miracle-sv7-japonais-2024-pokemon/) | DISPLAY STELLAR MIRACLE – SV7 – JAPONAIS 2024  |
 
 ## SV7A Paradise Dragona (JP)
 
 **Display** — SV7A Paradise Dragona (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Blazing Tail** | **84.90 €** | [fiche](https://www.blazingtail.fr/69648-29279-pokemon-display-pokemon-paradise-dragona-sv7a-en-japonais.html) | Pokémon - Display Pokémon - Paradise Dragona S |
+| **Blazing Tail** | **84.90 €** | [fiche](https://www.blazingtail.fr/69648-29279-pokemon-display-pokemon-paradise-dragona-sv7a-en-japonais.html) | Pokemon - Display Pokemon - Paradise Dragona-  |
 | Hikaru Distribution | 99.90 € | [fiche](https://hikarudistribution.com/products/display-paradise-dragona-sv7a-japonais) | Display Paradise Dragona - SV7A - Japonais |
 | Kairyu | 99.90 € | [fiche](https://kairyu.fr/products/scelle-display-sv7a-paradise-dragona-jap) | [SCELLE] Display SV7A - Paradise Dragona [JAP] |
 | Fuji Store | 110.00 € | [fiche](https://fuji-store.fr/produit/display-paradise-dragona-sv7a-japonais-2024-pokemon/) | DISPLAY PARADISE DRAGONA – SV7A – JAPONAIS 202 |
-| Outpost Brussels | 119.99 € | [fiche](https://outpostbrussels.be/products/pokemon-sv7a-paradise-dragona-display-jp) | Pokémon - SV7A - Paradise Dragona - display -  |
 
 ## SV8
 
 **Display** — SV8
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
+> [delta] reassort Blazing Tail ; plancher 199,90 € → 94,90 € (−53 %)
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Fuji Store** | **199.90 €** | [fiche](https://fuji-store.fr/produit/display-super-electric-breaker-sv8-japonais-2024-pokemon/) | DISPLAY SUPER ELECTRIC BREAKER – SV8 – JAPONAI |
+| **Blazing Tail** | **94.90 €** | [fiche](https://www.blazingtail.fr/69651-29282-pokemon-display-pokemon-super-electric-breaker-sv8-en-japonais.html) | Pokemon - Display Pokemon - Surging sparks- SV |
+| Fuji Store | 199.90 € | [fiche](https://fuji-store.fr/produit/display-super-electric-breaker-sv8-japonais-2024-pokemon/) | DISPLAY SUPER ELECTRIC BREAKER – SV8 – JAPONAI |
 
 ## SV8A
 
 **Display** — SV8A
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hikaru Distribution** | **179.90 €** | [fiche](https://hikarudistribution.com/products/display-terastal-festival-sv8a) | Display Terastal Festival ex - SV8A - Japonais |
@@ -647,22 +765,22 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## SV9
 
 **Display** — SV9
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Kairyu** | **84.90 €** | [fiche](https://kairyu.fr/products/scelle-display-sv9-battle-partners-jap) | [SCELLE] Display SV9 - Battle Partners [JAP] - |
-| Hikaru Distribution | 94.90 € | [fiche](https://hikarudistribution.com/products/display-battle-partners-sv9-japonais) | Display Battle Partners - SV9 - Japonais |
-| Key Two | 99.99 € | [fiche](https://keytwo.be/accueil/1005-display-cartes-pokemon-battle-partners-sv9-jpn.html) | Display Cartes Pokémon Battle Partners SV9 - J |
+| **Hikaru Distribution** | **94.90 €** | [fiche](https://hikarudistribution.com/products/display-battle-partners-sv9-japonais) | Display Battle Partners - SV9 - Japonais |
+| Kairyu | 99.90 € | [fiche](https://kairyu.fr/products/scelle-display-sv9-battle-partners-jap) | [SCELLE] Display SV9 - Battle Partners [JAP] - |
+| Key Two | 99.99 € | [fiche](https://keytwo.be/accueil/1005-display-cartes-pokemon-battle-partners-sv9-jpn.html) | Display Cartes Pokémon Battle Partners SV9 JPN |
 
 ## SV9A Heat Wave Arena (JP)
 
 **Display** — SV9A Heat Wave Arena (JP)
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Kairyu** | **104.90 €** | [fiche](https://kairyu.fr/products/scelle-display-sv9a-heat-wave-arena-jap) | [SCELLE] Display SV9A - Heat Wave Arena [JAP]  |
-| Key Two | 124.99 € | [fiche](https://keytwo.be/accueil/1006-display-pokemon-sv9a-heat-wave-arena-japonais-.html) | Display Pokémon SV9A Heat Wave Arena - Japonai |
+| **Key Two** | **124.99 €** | [fiche](https://keytwo.be/accueil/1006-display-pokemon-sv9a-heat-wave-arena-japonais-.html) | Display Pokémon SV9A heat wave arena Japonais |
 | Fuji Store | 135.00 € | [fiche](https://fuji-store.fr/produit/display-heat-wave-arena-sv9a-japonais-2025-pokemon/) | DISPLAY HEAT WAVE ARENA – SV9A – JAPONAIS 2025 |
+| Kairyu | 149.90 € | [fiche](https://kairyu.fr/products/scelle-display-sv9a-heat-wave-arena-jap) | [SCELLE] Display SV9A - Heat Wave Arena [JAP]  |
 | Hikaru Distribution | 169.90 € | [fiche](https://hikarudistribution.com/products/display-heat-wave-arena-sv9a-japonais) | Display Heat Wave Arena - SV9A - Japonais |
 
 
@@ -671,7 +789,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## EB04
 
 **Display** — EB04
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Pokelite** | **78.90 €** | [fiche](https://www.pokelite.fr/produit/display-egghead-crisis-one-piece-eb04/) | Display Egghead Crisis – One Piece EB04 JAPONA |
@@ -679,7 +797,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## OP02
 
 **Display** — OP02
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Fuji Store** | **150.00 €** | [fiche](https://fuji-store.fr/produit/display-paramount-war-op-02-japonais-2022-one-piece/) | DISPLAY PARAMOUNT WAR – OP-02 – JAPONAIS 2022  |
@@ -687,7 +805,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## OP08
 
 **Display** — OP08
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hama Cards** | **79.90 €** | [fiche](https://www.hamacards.com/produit/display-one-piece-bandai-op08-two-legends-japonais/) | Display One Piece Bandai OP08 : Two Legends (J |
@@ -695,7 +813,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## OP09 Les Nouveaux Empereurs
 
 **Display** — OP09 Les Nouveaux Empereurs
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Fuji Store** | **150.00 €** | [fiche](https://fuji-store.fr/produit/display-emperors-in-the-new-world-op-09-japonais-2024-one-piece/) | DISPLAY EMPERORS IN THE NEW WORLD – OP-09 – JA |
@@ -703,16 +821,16 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## OP10 Sang Royal
 
 **Display** — OP10 Sang Royal
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Plume et Pion** | **74.90 €** | [fiche](https://www.plumeetpion.fr/product/show/4582769707384/one-piece-trading-card-game-boite-de-24-boosters-royal-blood-op10-jap) | One Piece Trading Card Game - Boîte de 24 boos |
-| Hama Cards | 79.90 € | [fiche](https://www.hamacards.com/produit/display-one-piece-op10-royal-blood-japonais/) | Display One Piece OP10 : Royal Blood (JP) - Ja |
+| Hama Cards | 79.90 € | [fiche](https://www.hamacards.com/produit/display-one-piece-op10-royal-blood-japonais/) | Display One Piece OP10 : Royal Blood (JP) |
 
 ## OP11 Des Poings Vifs comme l'Éclair
 
 **Display** — OP11 Des Poings Vifs comme l'Éclair
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Fuji Store** | **134.90 €** | [fiche](https://fuji-store.fr/produit/display-a-fist-of-divine-speed-op-11-japonais-2025-one-piece/) | DISPLAY A FIST OF DIVINE SPEED – OP-11 – JAPON |
@@ -720,7 +838,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## OP12 L'Héritage du Maître
 
 **Display** — OP12 L'Héritage du Maître
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Hama Cards** | **79.90 €** | [fiche](https://www.hamacards.com/produit/display-one-piece-op12-legacy-of-the-master-japonais/) | Display One Piece OP12 : Legacy Of The Master  |
@@ -729,7 +847,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## OP13 Successeurs
 
 **Display** — OP13 Successeurs
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Fuji Store** | **230.00 €** | [fiche](https://fuji-store.fr/produit/display-carrying-on-his-will-op-13-japonais-2025-one-piece/) | DISPLAY CARRYING ON HIS WILL – OP-13 – JAPONAI |
@@ -737,25 +855,27 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## OP14 Les Sept de la Mer d'Azur
 
 **Display** — OP14 Les Sept de la Mer d'Azur
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
+> [delta] baisse Pokelite 77,90 € → 72,90 € (−6 %) ; plancher 77,90 € → 72,90 € (−6 %)
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Pokelite** | **77.90 €** | [fiche](https://www.pokelite.fr/produit/display-the-azure-seas-seven-one-piece-op14/) | Display The Azure Sea’s Seven – One Piece OP14 |
+| **Pokelite** | **72.90 €** | [fiche](https://www.pokelite.fr/produit/display-the-azure-seas-seven-one-piece-op14/) | Display The Azure Sea’s Seven – One Piece OP14 |
 | Fuji Store | 90.00 € | [fiche](https://fuji-store.fr/produit/display-seven-warlords-of-the-sea-op-14-japonais-2025-one-piece/) | DISPLAY SEVEN WARLORDS OF THE SEA – OP-14 – JA |
 
 ## OP15 Aventure sur l'Île de Dieu
 
 **Display** — OP15 Aventure sur l'Île de Dieu
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
+> [delta] baisse Pokelite 94,90 € → 89,90 € (−5 %) ; plancher 94,90 € → 89,90 € (−5 %)
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
-| **Pokelite** | **94.90 €** | [fiche](https://www.pokelite.fr/produit/display-adventure-on-kamis-island-one-piece-op15-japonais/) | Display Adventure on Kami’s Island – One Piece |
+| **Pokelite** | **89.90 €** | [fiche](https://www.pokelite.fr/produit/display-adventure-on-kamis-island-one-piece-op15-japonais/) | Display Adventure on Kami’s Island – One Piece |
 | Fuji Store | 100.00 € | [fiche](https://fuji-store.fr/produit/display-adventure-on-kamis-island-op-15-japonais-2026-one-piece/) | DISPLAY ADVENTURE ON KAMI’S ISLAND – OP-15 – J |
 
 ## OP16 L'Heure de la Bataille Décisive
 
 **Display** — OP16 L'Heure de la Bataille Décisive
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Fuji Store** | **130.00 €** | [fiche](https://fuji-store.fr/produit/display-the-time-of-battle-op-16-japonais-2026-one-piece/) | DISPLAY THE TIME OF BATTLE – OP-16 – JAPONAIS  |
@@ -763,7 +883,7 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 ## PRB02 The Best Vol.2
 
 **Display** — PRB02 The Best Vol.2
-> [cmref] manquant |  |  |  | 
+> [cmref] manquant |  |  |  |  | 
 | Site | Prix | Lien | Intitulé du site |
 |---|---|---|---|
 | **Fuji Store** | **69.00 €** | [fiche](https://fuji-store.fr/produit/display-the-best-prb-02-japonais-2025-one-piece/) | DISPLAY THE BEST – PRB-02 – JAPONAIS 2025 ONE  |
@@ -772,7 +892,14 @@ Sites : Bacchusia Jeux, Bien Jouets, Blazing Tail, Figuyatta, Fuji Store, Guizet
 
 # 🔵 Lorcana
 
-_(aucun)_
+## Lorcana — Chapitre 1 : Premier Chapitre
+
+**Display** — Lorcana — Chapitre 1 : Premier Chapitre
+> [cmref] ok | 846506 | https://www.cardmarket.com/fr/Lorcana/Products/Booster-Boxes/The-First-Chapter-Japanese-Booster-Box?sellerCountry=12&language=2 | 40.00 | 2026-06-20 | 
+> [delta] nouveau
+| Site | Prix | Lien | Intitulé du site |
+|---|---|---|---|
+| **Sakuro** | **54.99 €** | [fiche](https://sakuro.fr/products/display-lorcana-the-first-chapter-jp) | Display Lorcana - The First Chapter - JP - SAK |
 
 
 # 🗃️ Non rattaché à un set / une série
@@ -785,9 +912,9 @@ _(aucun)_
 |---|---|---|---|---|
 | Display Incandescent Arcana - S11A - Japonais | display | Hikaru Distribution | 94.90 € | [fiche](https://hikarudistribution.com/products/display-incandescent-arcana-s11a-japonais) |
 | DISPLAY BATTLE REGION – S9A – JAPONAIS 2022 POKEMON | display | Fuji Store | 99.00 € | [fiche](https://fuji-store.fr/produit/display-battle-region-s9a-japonais-2022-pokemon/) |
-| Pokémon - Display Pokémon - Terastral Festival - en jap | display | Blazing Tail | 104.90 € | [fiche](https://www.blazingtail.fr/69646-29277-pokemon-display-pokemon-terastral-festival-en-japonais.html) |
-| Display Time Gazer – s10D – Japonais - Japonais | display | Hikaru Distribution | 109.90 € | [fiche](https://hikarudistribution.com/products/display-time-gazer-s10d-japonais) |
-| Pokémon - Display S11a Ancandescent Arcana - 20 booster | display | Bien Jouets | 119.90 € | [fiche](https://bienjouets.fr/pokemon/5913-pokemon-display-s11a-ancandescent-arcana-20-boosters-japonaises) |
+| Pokémon - Display S11a Ancandescent Arcana - 20 booster | display | Bien Jouets | 101.92 € | [fiche](https://bienjouets.fr/pokemon/5913-pokemon-display-s11a-ancandescent-arcana-20-boosters-japonaises) |
+| Pokemon - Display Pokemon - Terastal Festival - en japo | display | Blazing Tail | 104.90 € | [fiche](https://www.blazingtail.fr/69646-29277-pokemon-display-pokemon-terastral-festival-en-japonais.html) |
+| Display Time Gazer – s10D – Japonais | display | Hikaru Distribution | 109.90 € | [fiche](https://hikarudistribution.com/products/display-time-gazer-s10d-japonais) |
 | DISPLAY INCANDESCENT ARCANA – S11A – JAPONAIS 2022 POKE | display | Fuji Store | 119.90 € | [fiche](https://fuji-store.fr/produit/display-incandescent-arcana-s11a-japonais-2022-pokemon/) |
 | DISPLAY SPACE JUGGLER – S10P – JAPONAIS 2022 POKEMON | display | Fuji Store | 139.90 € | [fiche](https://fuji-store.fr/produit/display-space-juggler-s10p-japonais-2022-pokemon/) |
 | DISPLAY POKEMON GO – S10B – JAPONAIS 2022 POKEMON | display | Fuji Store | 140.00 € | [fiche](https://fuji-store.fr/produit/display-pokemon-go-s10b-japonais-2022-pokemon/) |
@@ -795,15 +922,17 @@ _(aucun)_
 | Display Shiny Star V - S4A - Japonais | display | Hikaru Distribution | 149.90 € | [fiche](https://hikarudistribution.com/products/display-shiny-star-v-s4a-japonais) |
 | Coffret - Pokemon - Sword & Shield VMAX Special Set - S | coffret | Invest Collect | 149.90 € | [fiche](https://investcollect.com/pokemon/36461-coffret-pokemon-sword-shield-vmax-special-set-scelle-japonais-4521329306018.html) |
 | Coffret Spécial Pokémon Center Tōhoku – Édition Limitée | coffret | Hikaru Distribution | 159.90 € | [fiche](https://hikarudistribution.com/products/coffret-special-pokemon-center-tohoku-edition-limitee) |
+| Coffret Tohoku Pokémon Center – Pokémon JAPONAIS | coffret | Pokelite | 159.90 € | [fiche](https://www.pokelite.fr/produit/coffret-tohoku-pokemon-center-pokemon-japonais/) |
 | DISPLAY SILVER LANCE – S6H – JAPONAIS 2021 POKEMON | display | Fuji Store | 179.90 € | [fiche](https://fuji-store.fr/produit/display-silver-lance-s6h-japonais-2021-pokemon/) |
 | Display Paradigm Trigger - S12 - Japonais | display | Hikaru Distribution | 179.90 € | [fiche](https://hikarudistribution.com/products/display-paradigm-trigger-s12-japonais) |
 | DISPLAY PARADIGM TRIGGER – S12 – JAPONAIS 2022 POKEMON | display | Fuji Store | 180.00 € | [fiche](https://fuji-store.fr/produit/display-paradigm-trigger-s12-japonais-2022-pokemon/) |
 | DISPLAY STAR BIRTH – S9 – JAPONAIS 2022 POKEMON | display | Fuji Store | 180.00 € | [fiche](https://fuji-store.fr/produit/display-star-birth-s9-japonais-2022-pokemon/) |
-| DISPLAY SHINY STAR V – S4A – JAPONAIS 2020 POKEMON | display | Fuji Store | 180.00 € | [fiche](https://fuji-store.fr/produit/display-shiny-star-v-s4a-japonais-2020-pokemon/) |
 | DISPLAY DARK PHANTASMA – S10A – JAPONAIS 2022 POKEMON | display | Fuji Store | 185.00 € | [fiche](https://fuji-store.fr/produit/display-dark-phantasma-s10a-japonais-2022-pokemon/) |
-| COFFRET TOHOKU – POKEMON CENTER – JAPONAIS 2025 POKEMON | coffret | Fuji Store | 199.00 € | [fiche](https://fuji-store.fr/produit/coffret-tohoku-pokemon-center-japonais-2025-pokemon/) |
+| Coffret Fukuoka Pokémon Center – Pokémon JAPONAIS | coffret | Pokelite | 194.90 € | [fiche](https://www.pokelite.fr/produit/coffret-fukuoka-pokemon-center-pokemon-japonais/) |
 | Display Dark Phantasma - S10A - Japonais | display | Hikaru Distribution | 199.90 € | [fiche](https://hikarudistribution.com/products/display-dark-phantasma-s10a-japonais) |
+| Coffret Hiroshima Pokémon Center – Pokémon JAPONAIS | coffret | Pokelite | 204.90 € | [fiche](https://www.pokelite.fr/produit/coffret-hiroshima-pokemon-center-pokemon-japonais/) |
 | DISPLAY JET-BLACK SPIRIT – S6K – JAPONAIS 2021 POKEMON | display | Fuji Store | 219.90 € | [fiche](https://fuji-store.fr/produit/display-jet-black-spirit-s6k-japonais-2021-pokemon/) |
+| COFFRET TOHOKU – POKEMON CENTER – JAPONAIS 2025 POKEMON | coffret | Fuji Store | 220.00 € | [fiche](https://fuji-store.fr/produit/coffret-tohoku-pokemon-center-japonais-2025-pokemon/) |
 | Display Vmax Climax - S8B - Japonais | display | Hikaru Distribution | 249.90 € | [fiche](https://hikarudistribution.com/products/display-vmax-climax-s8b-japonais) |
 | Display VSTAR Universe - S12A - Japonais | display | Hikaru Distribution | 249.90 € | [fiche](https://hikarudistribution.com/products/display-vstar-universe-s12a-japonais) |
 | COFFRET HIROSHIMA – POKEMON CENTER – JAPONAIS 2025 POKE | coffret | Fuji Store | 290.00 € | [fiche](https://fuji-store.fr/produit/coffret-hiroshima-pokemon-center-japonais-2025-pokemon/) |
@@ -812,7 +941,6 @@ _(aucun)_
 | Coffret - Pokémon - Precious Collector Box - Scellé - J | coffret | Lector Shop | 350.00 € | [fiche](https://lectorshop.com/products/coffret-pokemon-precious-collector-box-scelle-japonais) |
 | COFFRET FUKUOKA – POKEMON CENTER – JAPONAIS 2025 POKEMO | coffret | Fuji Store | 375.00 € | [fiche](https://fuji-store.fr/produit/coffret-fukuoka-pokemon-center-japonais-2025-pokemon/) |
 | DISPLAY FUSION ARTS – S8 – JAPONAIS 2021 POKEMON | display | Fuji Store | 380.00 € | [fiche](https://fuji-store.fr/produit/display-fusion-arts-s8-japonais-2021-pokemon/) |
-| Coffret Spécial - 30 ans - Rouge Feu ou Vert Feuille -  | coffret | Guizette Family | 389.00 € | [fiche](https://www.guizettefamily.com/produit/coffret-30-ans-pokemon-japonais/) |
 | DISPLAY LOST ABYSS – S11 – JAPONAIS 2022 POKEMON | display | Fuji Store | 400.00 € | [fiche](https://fuji-store.fr/produit/display-lost-abyss-s11-japonais-2022-pokemon/) |
 | Display 25 ans - Japonais | display | Hikaru Distribution | 449.90 € | [fiche](https://hikarudistribution.com/products/display-25-ans-japonais) |
 | Display - Pokemon - Blue Sky Stream - s7R - Scellé - Ja | display | Invest Collect | 1500.00 € | [fiche](https://investcollect.com/pokemon/39040-display-pokemon-blue-sky-stream-s7r-scelle-japonais-4521329322384.html) |
@@ -821,6 +949,8 @@ _(aucun)_
 
 | Article | Type | Site | Prix | Lien |
 |---|---|---|---|---|
+| One Piece Special Goods Set - Japonais | coffret | Le Temple du Jeu | 64.90 € | [fiche](https://www.letempledujeu.fr/zoom1088401.html) |
+| UTA Collection One Piece - Japonais | coffret | Le Temple du Jeu | 75.90 € | [fiche](https://www.letempledujeu.fr/zoom1092949.html) |
 | DISPLAY 25TH COLLECTION – EB-02 – JAPONAIS 2025 ONE PIE | display | Fuji Store | 149.90 € | [fiche](https://fuji-store.fr/produit/display-25th-collection-eb-02-japonais-2025-one-piece/) |
 | COFFRET 2ND ANNIVERSARY SET – JAPONAIS 2024 ONE PIECE | coffret | Fuji Store | 1100.00 € | [fiche](https://fuji-store.fr/produit/coffret-2nd-anniversary-set-japonais-2024-one-piece/) |
 
@@ -830,9 +960,9 @@ _(aucun)_
 
 
 ---
-**18 sites, 168 réfs JP, 52 produits, 35 non rattachés.**
+**16 sites, 168 réfs JP, 56 produits, 38 non rattachés.**
 
-_Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémon/One Piece)._</script>
+_Snapshot 2026-07-07. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémon/One Piece)._</script>
 
 <header class="app">
   <div class="head-row">
@@ -858,6 +988,7 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
     </div>
     <select class="sort" id="sort" aria-label="Trier">
       <option value="ecart">Trier : écart le + grand</option>
+      <option value="cm">Trier : marge vs Cardmarket</option>
       <option value="prix-asc">Trier : meilleur prix ↑</option>
       <option value="prix-desc">Trier : meilleur prix ↓</option>
       <option value="alpha">Trier : A → Z</option>
@@ -882,6 +1013,7 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
 </header>
 
 <main>
+  <div class="deltabar" id="deltabar" hidden></div>
   <div class="resultline" id="resultline"></div>
   <div id="list"></div>
 </main>
@@ -956,7 +1088,7 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
 
   function parse(md){
     const lines = md.split(/\r?\n/);
-    let title="Veille stock", date="";
+    let title="Veille stock", date="", prevDate="", inDelta=false;
     const universes=[]; let cu=null, cs=null, cp=null, tableMode=null, inUnmatched=false;
     const sitesSet=new Set();
     let offTotal=0, prodTotal=0;
@@ -966,6 +1098,18 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
       const ln = lines[i];
       const t = ln.trim();
       if(!t) continue;
+
+      // section « 🆕 Depuis le dernier run » : son contenu (tableaux au schéma propre) est ignoré,
+      // l'encadré de tête est reconstruit depuis les lignes « > [delta] » portées par les produits
+      if(/^#\s/.test(t) && !/^##/.test(t) && /depuis le dernier run/i.test(t)){
+        prevDate=(t.match(/(\d{4}-\d{2}-\d{2})/)||["",""])[1]||"";
+        inDelta=true; cu=null; cs=null; cp=null; tableMode=null;
+        continue;
+      }
+      if(inDelta){
+        if(!/^#\s/.test(t) || /^##/.test(t)) continue;
+        inDelta=false;   // H1 suivant : reprise du parsing normal
+      }
 
       // top title (first H1 that is not an emoji universe)
       if(/^#\s/.test(t) && !/^##/.test(t)){
@@ -1014,11 +1158,19 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
         cs.products.push(cp); prodTotal++; tableMode=null;
         continue;
       }
-      // cardmarket ref line: > [cmref] statut | idProduct | url
+      // cardmarket ref line: > [cmref] statut | idProduct | url | prix | date | écart vs prix boutique min (ex. +12%)
       if(t.startsWith("> [cmref]")){
         if(cp){
           const parts=t.replace("> [cmref]","").split("|").map(x=>x.trim());
-          cp.cm={statut:parts[0]||"",id:parts[1]||"",url:parts[2]||"",price:parts[3]||"",date:parts[4]||""};
+          cp.cm={statut:parts[0]||"",id:parts[1]||"",url:parts[2]||"",price:parts[3]||"",date:parts[4]||"",ecart:parts[5]||""};
+        }
+        continue;
+      }
+      // delta line: > [delta] nouveau ; reassort Site1, Site2 ; baisse Site x → y (−12 %) ; plancher x → y (−8 %)
+      if(t.startsWith("> [delta]")){
+        if(cp){
+          cp.delta=t.replace("> [delta]","").split(";").map(x=>x.trim()).filter(Boolean)
+            .map(seg=>({kind:seg.split(/\s+/)[0],txt:seg}));
         }
         continue;
       }
@@ -1068,11 +1220,13 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
             return x-y;
           });
           p.cheapest = p.offers.find(o=>!isNaN(o.priceNum)) || p.offers[0];
+          const ce = p.cm ? parseFloat(p.cm.ecart) : NaN;   // "+12%" -> 12
+          p.cmGap = isNaN(ce) ? null : ce;
         });
       });
     });
 
-    return {title,date,universes,stats:{prod:prodTotal,off:offTotal,sites:sitesSet.size}};
+    return {title,date,prevDate,universes,stats:{prod:prodTotal,off:offTotal,sites:sitesSet.size}};
   }
 
   /* ---------------- state ---------------- */
@@ -1082,6 +1236,7 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
     q:"",
     universes:new Set(),  // empty = all
     types:new Set(),      // empty = all
+    deltaOnly:false,      // ne montrer que les produits avec changement vs run précédent
     sort:"ecart",
     collapsedUni:new Set(),
     collapsedSet:new Set(),
@@ -1125,6 +1280,32 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
     typeChips.appendChild(b);
   });
   function toggleSet(set,key){ set.has(key)?set.delete(key):set.add(key); }
+
+  /* ---------------- encadré « depuis le dernier run » ---------------- */
+  const DELTA_SING={nouveau:"nouveau",reassort:"réassort",baisse:"baisse",plancher:"plancher"};
+  const DELTA_PLUR={nouveau:"nouveaux",reassort:"réassorts",baisse:"baisses",plancher:"planchers"};
+  const deltaCounts={};
+  DATA.universes.forEach(u=>u.sets.forEach(s=>s.products.forEach(p=>{
+    if(!p.delta) return;
+    [...new Set(p.delta.map(d=>d.kind))].forEach(k=>{deltaCounts[k]=(deltaCounts[k]||0)+1;});
+  })));
+  const deltaBar=document.getElementById("deltabar");
+  if(Object.keys(deltaCounts).length){
+    deltaBar.hidden=false;
+    deltaBar.innerHTML=`<span class="dtitle">🆕 Depuis le dernier run${DATA.prevDate?" ("+esc(DATA.prevDate)+")":""}</span>
+      <span class="dcounts">${["nouveau","reassort","baisse","plancher"].filter(k=>deltaCounts[k])
+        .map(k=>`<span class="dcount" data-d="${k}">${deltaCounts[k]} ${esc(deltaCounts[k]>1?DELTA_PLUR[k]:DELTA_SING[k])}</span>`).join("")}</span>
+      <button class="dfilter" id="dfilter" aria-pressed="false">Voir les changements</button>`;
+    document.getElementById("dfilter").onclick=()=>{
+      state.deltaOnly=!state.deltaOnly;
+      document.getElementById("dfilter").setAttribute("aria-pressed",state.deltaOnly?"true":"false");
+      if(state.deltaOnly){
+        state.allCollapsed=false; state.collapsedUni.clear(); state.collapsedSet.clear();
+        document.getElementById("toggle-all").textContent="Tout replier";
+      }
+      render();
+    };
+  }
   function syncChips(container,set){
     container.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed", set.has(c.dataset.key)?"true":"false"));
   }
@@ -1174,6 +1355,7 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
 
   /* ---------------- filtering / sorting ---------------- */
   function prodMatches(p,setName,uniName){
+    if(state.deltaOnly && !p.delta) return false;
     if(state.types.size && !state.types.has(p.tkey)) return false;
     if(state.q){
       const hay=(p.name+" "+p.type+" "+setName+" "+uniName+" "+p.offers.map(o=>o.site+" "+o.title).join(" ")).toLowerCase();
@@ -1181,11 +1363,13 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
     }
     return true;
   }
+  const cmSortVal=p=>p.cmGap==null?-Infinity:p.cmGap;
   function sortProds(arr){
     const s=state.sort;
     const cp=[...arr];
     cp.sort((a,b)=>{
       if(s==="ecart") return (b.gapPct||0)-(a.gapPct||0) || (b.gap||0)-(a.gap||0);
+      if(s==="cm") return cmSortVal(b)-cmSortVal(a);
       if(s==="prix-asc") return (isNaN(a.min)?Infinity:a.min)-(isNaN(b.min)?Infinity:b.min);
       if(s==="prix-desc") return (isNaN(b.min)?-Infinity:b.min)-(isNaN(a.min)?-Infinity:a.min);
       if(s==="alpha") return (a.setName||"").localeCompare(b.setName||"","fr")||a.name.localeCompare(b.name,"fr");
@@ -1212,12 +1396,33 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
       <tbody>${rows}</tbody></table></div>`;
   }
 
+  function deltaBadgesHTML(p){
+    if(!p.delta) return "";
+    return [...new Set(p.delta.map(d=>d.kind))].map(k=>{
+      let pct="";
+      if(k==="baisse"||k==="plancher"){
+        const m=p.delta.find(d=>d.kind===k).txt.match(/\([−-]\s*(\d+)\s*%\)/);
+        if(m) pct=" −"+m[1]+" %";
+      }
+      return `<span class="badge-delta" data-d="${esc(k)}">${esc(DELTA_SING[k]||k)}${pct}</span>`;
+    }).join("");
+  }
+  function deltaHTML(p){
+    if(!p.delta) return "";
+    return `<div class="deltaline"><span class="dlbl">🆕 Delta</span> ${esc(p.delta.map(d=>d.txt).join("  ·  "))}</div>`;
+  }
+
   const CM_NOK={ambigu:"à choisir (variantes)",manquant:"à chercher",["hors-couverture"]:"non couvert"};
+  function cmBadgeHTML(p){
+    if(p.cmGap==null) return "";
+    return `<span class="badge-cm" data-lvl="${p.cmGap>=15?"hi":"lo"}">${p.cmGap>0?"+":""}${p.cmGap} % vs CM</span>`;
+  }
   function cmHTML(p){
     if(!p.cm) return "";
     if(p.cm.statut==="ok" && p.cm.id){
       const prix=p.cm.price?` · <span class="cmprice">dès ${esc(p.cm.price.replace(".",","))} €</span>`:"";
-      return `<div class="cmref"><span class="cmlbl">Cardmarket</span> #${esc(p.cm.id)}${prix}`
+      const marge=p.cmGap!=null?` · marge brute ${p.cmGap>0?"+":""}${p.cmGap} % (hors commission CM ~5 % et port)`:"";
+      return `<div class="cmref"><span class="cmlbl">Cardmarket</span> #${esc(p.cm.id)}${prix}${marge}`
         +(p.cm.url?` <a href="${esc(p.cm.url)}" target="_blank" rel="noopener">fiche ↗</a>`:"")+`</div>`;
     }
     return `<div class="cmref nok"><span class="cmlbl">Cardmarket</span> ${esc(CM_NOK[p.cm.statut]||p.cm.statut)}</div>`;
@@ -1233,7 +1438,7 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
       <div class="prod-main">
         <span class="badge-type" data-t="${p.tkey}">${esc(TYPE_LABEL[p.tkey]||p.type)}</span>
         <div class="pname">
-          <div class="t">${esc(p.name||p.type)}</div>
+          <div class="t">${esc(p.name||p.type)}${deltaBadgesHTML(p)}${cmBadgeHTML(p)}</div>
           ${ctx?`<div class="ctx">${esc(ctx)}</div>`:""}
         </div>
         <div class="best-cell">
@@ -1244,6 +1449,7 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
         <svg class="pexpand" width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       ${offersHTML(p)}
+      ${deltaHTML(p)}
       ${cmHTML(p)}
     </div>`;
   }
@@ -1282,6 +1488,7 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
       items.sort((a,b)=>{
         const s=state.sort, A=a.p,B=b.p;
         if(s==="ecart") return (B.gapPct||0)-(A.gapPct||0)||(B.gap||0)-(A.gap||0);
+        if(s==="cm") return cmSortVal(B)-cmSortVal(A);
         if(s==="prix-asc") return (isNaN(A.min)?Infinity:A.min)-(isNaN(B.min)?Infinity:B.min);
         if(s==="prix-desc") return (isNaN(B.min)?-Infinity:B.min)-(isNaN(A.min)?-Infinity:A.min);
         return (a.ctx).localeCompare(b.ctx,"fr");
@@ -1290,7 +1497,10 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
       items.forEach(it=>{ html+=prodHTML(it.p,it.pid,it.ctx); shownProd++; });
       html+='</div></div>';
       listEl.innerHTML = shownProd?html:emptyHTML();
-      resultEl.innerHTML = shownProd?`<b>${shownProd}</b> produits — triés par écart de prix décroissant`:"";
+      const sortTxt = state.sort==="cm"
+        ? "triés par marge vs Cardmarket — marge brute, hors commission CM ~5 % et port"
+        : "triés par écart de prix décroissant";
+      resultEl.innerHTML = shownProd?`<b>${shownProd}</b> produits — ${sortTxt}`:"";
       bind();
       return;
     }
@@ -1333,7 +1543,7 @@ _Snapshot 2026-06-29. Prix € TTC. Référentiels = Cardmarket (Lorcana/Pokémo
       </section>`;
     });
     listEl.innerHTML = shownProd?html:emptyHTML();
-    resultEl.innerHTML = shownProd?`<b>${shownProd}</b> produits affichés`+(state.q||state.universes.size||state.types.size?" (filtré)":""):"";
+    resultEl.innerHTML = shownProd?`<b>${shownProd}</b> produits affichés`+(state.q||state.universes.size||state.types.size||state.deltaOnly?" (filtré)":""):"";
     bind();
   }
 
